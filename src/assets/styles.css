@@ -1,0 +1,39 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.search-report-container {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+}
+
+.custom-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+}
+
+.modifiable {
+    padding-top: 100px;
+    margin-left: 10%;
+}
+
+.footer-manager{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (width <= 768px) {
+   .custom-table{
+         width: 50%;
+   }
+    .search-report-container{
+        left: 20%;
+        width: 150%;
+    }
+}
