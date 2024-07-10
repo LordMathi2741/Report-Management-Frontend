@@ -32,7 +32,7 @@ export default {
 
 <template>
    <div class="search-report-container p-4 flex flex-column gap-5" aria-label="Search report options content">
-    <div class="flex gap-2" aria-label="Search report options parameters">
+    <div class="flex flex-column md:flex-row gap-2" aria-label="Search report options parameters">
       <pv-inputext  v-model="certifiedNumber" placeholder="Enter Certified Number" aria-label="Enter certified number"></pv-inputext>
       <pv-inputext v-model="cylinderNumber" placeholder="Enter Cylinder Number" aria-label="Enter cylinder number"></pv-inputext>
       <pv-inputext v-model="vehicleIdentifier" placeholder="Enter Vehicle Identifier" aria-label="Enter vehicle identifier"></pv-inputext>
