@@ -8,7 +8,7 @@ export default {
 </script>
 
 <template>
-  <div class="modifiable md:text-sm sm:text-xs text-cyan-600">
+  <div class="modifiable text-left pl-7 md:pl-8 lg:pl-0 md:text-sm sm:text-xs text-cyan-600">
     <h1> Reports Management Screen </h1>
     <search-report-options/>
   </div>
