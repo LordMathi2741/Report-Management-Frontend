@@ -4,7 +4,6 @@
     --minPriorityContainer: 0;
 }
 
-
 *{
     padding: 0;
     margin: 0;
@@ -23,11 +22,6 @@ body {
     left: 10%;
 }
 
-.custom-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-    border: 1px solid #ddd;
-}
 
 .modifiable {
     padding-top: 150px;
@@ -91,9 +85,6 @@ li:nth-child(1):hover{
 
 
 @media (width <= 768px) {
-   .custom-table{
-         width: 50%;
-   }
     .search-report-container{
         width: 80%;
     }
@@ -111,7 +102,6 @@ li:nth-child(1):hover{
     .sign-in-options{
         margin-top: 35%;
     }
-
 
 }
 
