@@ -3,14 +3,27 @@ import SearchReportOptions from '@/components/search-report-options.component.vu
 
 export default {
   name: 'search-report-page',
-  components: { SearchReportOptions }
+  components: { SearchReportOptions },
+  data(){
+    return {
+      isUserSignIn: false
+    }
+  },
+  mounted(){
+    if(sessionStorage.getItem('user') !== null){
+      this.isUserSignIn = true
+    }
+  }
 }
 </script>
 
 <template>
-  <div class="modifiable text-left pl-7 md:pl-8 lg:pl-0 md:text-sm sm:text-xs text-cyan-600">
+  <div v-if="isUserSignIn" class="modifiable text-left pl-7 md:pl-8 lg:pl-0 md:text-sm sm:text-xs text-black-alpha-90">
     <h1> Reports Management Screen </h1>
     <search-report-options/>
+  </div>
+  <div class="user-sign-in-manager" v-else>
+    <h1 > You are not signed in, please go to sign in </h1>
   </div>
 </template>
 

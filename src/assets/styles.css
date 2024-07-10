@@ -12,6 +12,10 @@
     overflow-x: hidden;
 }
 
+body {
+    background-color: mediumseagreen;
+}
+
 
 .search-report-container {
     position: absolute;
@@ -26,7 +30,7 @@
 }
 
 .modifiable {
-    padding-top: 100px;
+    padding-top: 150px;
     width: 1200px;
     margin: 0 auto;
 }
@@ -48,16 +52,28 @@
     text-decoration: none;
 }
 
+
 .sign-in-options{
     margin-top: 15%;
     display: grid;
     gap: 30px;
     justify-content: center;
+    padding: 40px;
+    width: 100%;
 }
 .sign-up-options{
     display: grid;
     place-items: center;
     gap: 10px;
+    margin-top: 10%;
+}
+
+.user-sign-in-manager{
+    display: grid;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10%;
+
 }
 
 
@@ -95,4 +111,16 @@ li:nth-child(1):hover{
     .sign-in-options{
         margin-top: 35%;
     }
+
+
+}
+
+@media(width <=420px){
+    .sign-in-scalable-size{
+        width : 100%
+    }
+    .sign-in-options{
+       margin-right:80%;
+    }
+
 }
