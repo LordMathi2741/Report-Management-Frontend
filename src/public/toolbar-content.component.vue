@@ -12,9 +12,9 @@ export default {
 <template>
    <div class="toolbar-manager flex justify-content-between bg-black-alpha-90 p-5" aria-label="Toolbar content">
       <div class="text-white flex gap-2" aria-label="Company logo">
-         <img src="https://hiperfast.pe/images/logo-hiperfast.png" width="150px"/>
+         <img src="https://hiperfast.pe/images/logo-hiperfast.png" class="logo-size" alt="Brand logo"/>
       </div>
-        <ul class="flex gap-3 sm:text-base md:text-lg">
+        <ul class="flex flex-column md:flex-row gap-3 sm:text-base md:text-lg">
           <router-link class="router-style" to="/sign-in" aria-label="Go to home section">
             <li> Home</li>
           </router-link>

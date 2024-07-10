@@ -15,6 +15,11 @@ body {
     background-color: mediumseagreen;
 }
 
+.logo-size{
+    width: 100px;
+    height: 30px;
+}
+
 
 .search-report-container {
     position: absolute;
