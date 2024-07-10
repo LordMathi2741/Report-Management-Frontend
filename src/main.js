@@ -7,9 +7,10 @@ import Aura from '@primevue/themes/aura';
 import InputText from 'primevue/inputtext';
 import 'primeicons/primeicons.css'
 import Button from 'primevue/button';
-import router from './router'
+import router from './router/router.js'
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
+
 
 const app = createApp(App)
 app.use(router)

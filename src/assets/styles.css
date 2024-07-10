@@ -43,8 +43,31 @@
     z-index: var(--maxPriorityContainer);
 }
 
+.router-style{
+    color:white;
+    text-decoration: none;
+}
+
+.sign-in-options{
+    margin-top: 15%;
+    display: grid;
+    gap: 30px;
+    justify-content: center;
+}
+.sign-up-options{
+    display: grid;
+    place-items: center;
+    gap: 10px;
+}
+
+
+small {
+    text-align: center;
+}
+
+
 li:nth-child(1):hover{
-    color:black;
+    color: limegreen;
     cursor: pointer;
     scale: var(--scalableSize);
     transition: 1s ease all;
@@ -65,5 +88,11 @@ li:nth-child(1):hover{
 
     .modifiable{
         font-size: 10px;
+    }
+}
+
+@media (width<= 550px){
+    .sign-in-options{
+        margin-top: 35%;
     }
 }
