@@ -3,17 +3,27 @@ export default {
   name: 'profile-management',
   data(){
     return {
-       currentUserName: JSON.parse(sessionStorage.getItem('user'))?.name
+       currentUserName: JSON.parse(sessionStorage.getItem('user'))?.username
     }
   }
 }
 </script>
 
 <template>
-   <h1 class="text-center">Profile Management</h1>
-   <div class="flex flex-column justify-content-center">
-      <i class="pi pi-user"></i>
-      <p>UserName: {{currentUserName}}</p>
+   <div class="profile-manager" aria-label="Profile manager content">
+     <h1 class="text-center" aria-label="Profile manager screen title">Profile Management</h1>
+     <div v-if="currentUserName" class="profile-section" aria-label="Profile section content">
+       <div class="bg-white flex flex-column gap-3 p-8 shadow-7 border-round-2xl" aria-label="User profile content">
+          <i class="pi pi-user text-6xl" aria-label="User profile icon"></i>
+          <p class="text-2xl" aria-label="User profile username">Username: {{currentUserName}}</p>
+         </div>
+     </div>
+     <div class="profile-section" aria-label="Profile section container"  v-else>
+       <div  aria-label="User profile content" class="bg-white flex flex-column gap-3 p-8 shadow-7 border-round-2xl">
+         <i aria-label="User profile icon" class="pi pi-user text-6xl"></i>
+         <p aria-label="User profile username" class="text-2xl">Username: </p>
+       </div>
+     </div>
    </div>
 </template>
 

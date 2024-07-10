@@ -24,7 +24,7 @@ export default {
           <router-link class="router-style" to="/search" aria-label="Go to search report pdf section">
             <li> Search </li>
           </router-link>
-          <router-link class="router-style" to="/" aria-label="Go to my profile section">
+          <router-link class="router-style" to="/profile" aria-label="Go to my profile section">
             <li> My Profile </li>
           </router-link>
           <li v-if="currentUserName" aria-label="Username details">

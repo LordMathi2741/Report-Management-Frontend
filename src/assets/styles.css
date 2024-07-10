@@ -75,6 +75,19 @@ small {
     text-align: center;
 }
 
+.profile-manager{
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+
+}
+.profile-section{
+    display: grid;
+    place-items: center;
+    padding: 100px;
+}
+
 
 li:nth-child(1):hover{
     color: limegreen;
