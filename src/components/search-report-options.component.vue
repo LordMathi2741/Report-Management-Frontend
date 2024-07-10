@@ -28,7 +28,7 @@ export default {
 </script>
 
 <template>
-   <div class="search-report-container w-full flex flex-column gap-5">
+   <div class="search-report-container  flex flex-column gap-5">
     <div class="flex gap-2">
       <pv-inputext v-model="type" placeholder="Search by Name"></pv-inputext>
       <pv-button @click="searchReport">Search</pv-button>
@@ -37,7 +37,7 @@ export default {
        <p class="text-center text-red-800">No data found</p>
      </div>
      <div v-else>
-       <iframe :src="reportImg" width="100%" height="630">
+       <iframe :src="reportImg" width="1000" height="1030">
          Tu navegador no soporta el elemento <code>iframe</code>.
        </iframe>
      </div>
