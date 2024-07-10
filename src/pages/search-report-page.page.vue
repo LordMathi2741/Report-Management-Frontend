@@ -18,8 +18,8 @@ export default {
 </script>
 
 <template>
-  <div v-if="isUserSignIn" class="modifiable text-left pl-7 md:pl-8 lg:pl-0 md:text-sm sm:text-xs text-black-alpha-90">
-    <h1> Reports Management Screen </h1>
+  <div v-if="isUserSignIn" class="modifiable text-left pl-7 md:pl-8 lg:pl-0 md:text-sm sm:text-xs text-black-alpha-90" aria-label="Report management screen">
+    <h1 aria-label="Screen title"> Reports Management Screen </h1>
     <search-report-options/>
   </div>
   <div class="user-sign-in-manager" v-else>
