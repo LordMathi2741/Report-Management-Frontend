@@ -1,5 +1,6 @@
 <script>
 import ReportsService from '@/helpers/reports.service.js'
+import ReportImgService from '@/helpers/report-img.service.js'
 
 export default {
   name: 'search-report-options',
@@ -10,23 +11,41 @@ export default {
       cylinderNumber: "",
       vehicleIdentifier:"",
       emitDate: null,
-      ReportsService : new ReportsService(),
-      notDataFound: false
+      reportsService : new ReportsService(),
+      notDataFound: true,
+      reportsImgService: new ReportImgService()
+
     }
   },
   methods: {
     searchReport() {
-      this.ReportsService.getReportImgByCertifiedNumberAndCylinderNumberAndEmitDateAndVehicleIdentifier(this.certifiedNumber, this.cylinderNumber, this.emitDate, this.vehicleIdentifier)
+      this.reportsService.reportExistsByImgByCertifiedNumberAndCylinderNumberAndEmitDateAndVehicleIdentifier(this.certifiedNumber, this.cylinderNumber, this.emitDate, this.vehicleIdentifier)
         .then((response) => {
           if (response.status === 200) {
-            this.reportImg = response.data
             this.notDataFound = false;
+            this.getReportImg(this.certifiedNumber);
+          }
+        }).catch(() => {
+        this.notDataFound = true;
+      })
+    },
+    async getReportImg(filename){
+      await this.reportsImgService.getReportImgByFileName(filename)
+        .then((response) => {
+          if (response.status === 200) {
+            this.reportImg = response.data;
+            console.log(this.reportImg);
           }
         }).catch(() => {
         this.notDataFound = true;
       })
     }
   },
+  computed: {
+    pdfImgUrl() {
+      return `http://localhost:3000/pdfs/${this.certifiedNumber}.pdf`;
+    }
+  }
 }
 </script>
 
@@ -44,7 +63,7 @@ export default {
        <p class="text-center text-red-800">No data found</p>
      </div>
      <div v-else aria-label="Report content section">
-       <iframe :src="reportImg" class="pdf-screen-manager" width="1000" height="1030">
+       <iframe :src="pdfImgUrl" class="pdf-screen-manager" width="1000" height="1030">
          Tu navegador no soporta el elemento <code>iframe</code>.
        </iframe>
      </div>

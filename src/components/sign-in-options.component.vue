@@ -31,8 +31,8 @@ export default {
     <div class="sign-in-scalable-size bg-white flex flex-column gap-4 p-7 border-round-2xl shadow-3" aria-label="Sign in sections parameters">
       <h1 class="text-center text-black-alpha-90 text-sm md:text-base lg:text-2xl" aria-label="Sign in section title"> Please enter your account details: </h1>
       <div class="flex flex-column  w-10em sm:w-15rem md:w-30rem gap-2" aria-label="Sign in parameters">
-        <pv-inputext v-model="email"  size="large" type="text" placeholder="Please enter your email" aria-label="Please enter your email"/>
-        <pv-inputext v-model="password" size="large" type="password" placeholder="Please enter your password" aria-label="Please enter your password"/>
+        <pv-inputext class="text-xs md:text-base" v-model="email"  size="large" type="text" placeholder="Please enter your email" aria-label="Please enter your email"/>
+        <pv-inputext class="text-xs md:text-base" v-model="password" size="large" type="password" placeholder="Please enter your password" aria-label="Please enter your password"/>
       </div>
       <div>
         <pv-button @click="signIn" class="w-10rem  text-xs  sm:text-base" size="large" severity="primary" aria-label="Sign in button"> Sign in </pv-button>
