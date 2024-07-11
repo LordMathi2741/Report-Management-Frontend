@@ -10,6 +10,8 @@ import Button from 'primevue/button';
 import router from './router/router.js'
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
+import Menu from 'primevue/menu';
+
 
 
 const app = createApp(App)
@@ -23,4 +25,5 @@ app.component('pv-button', Button);
 app.component('pv-inputext', InputText);
 app.component('pv-datatable', DataTable);
 app.component('pv-column', Column);
+app.component('pv-menu', Menu);
 app.mount('#app')

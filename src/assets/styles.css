@@ -75,7 +75,9 @@ body {
 
 }
 
-
+.user-sign-in-manager{
+    margin-top: 20%;
+}
 small {
     text-align: center;
 }
@@ -114,11 +116,17 @@ li:nth-child(1):hover{
     .modifiable{
         font-size: 10px;
     }
+
 }
+
+
 
 @media (width<= 550px){
     .sign-in-options{
         margin-top: 35%;
+    }
+    .user-sign-in-manager{
+        margin-top: 40%;
     }
 
 }
