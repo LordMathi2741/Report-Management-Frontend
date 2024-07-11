@@ -35,7 +35,7 @@ export default {
         <pv-inputext v-model="password" size="large" type="password" placeholder="Please enter your password" aria-label="Please enter your password"/>
       </div>
       <div>
-        <pv-button @click="signIn" class="w-10rem text-xs sm:text-base" size="large" severity="primary" aria-label="Sign in button"> Sign in </pv-button>
+        <pv-button @click="signIn" class="w-10rem  text-xs  sm:text-base" size="large" severity="primary" aria-label="Sign in button"> Sign in </pv-button>
       </div>
       <div class="flex flex-column gap-2">
         <small id="username-help" aria-label="Do you dont have an account yet? Warning">Do you dont have an account yet?.</small>

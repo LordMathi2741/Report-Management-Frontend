@@ -129,7 +129,12 @@ li:nth-child(1):hover{
         margin-top: 40%;
     }
 
+    .sign-up-options{
+        margin-top: 30%;
+    }
+
 }
+
 
 @media(width <=420px){
     .sign-in-scalable-size{

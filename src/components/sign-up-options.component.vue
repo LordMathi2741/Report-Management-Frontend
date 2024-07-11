@@ -42,11 +42,11 @@ export default {
           <small class="text-left text-green-900" aria-label="Your password must to be greater than 8 letters and contains @. Warning" id="username-help">Your password must to be greater than 8 letters and contains @.</small>
           <pv-inputext v-model="this.password" size="large" type="password" aria-label="Please enter your password" placeholder="Please enter your password"/>
         </div>
-        <pv-button @click="signUp"  class="w-10rem text-xs sm:text-base sm:w-30rem" aria-label="Sign up button" size="large" severity="danger"> Sign up </pv-button>
+        <pv-button @click="signUp"  class=" text-xs sm:text-base  md:w-15rem lg:w-30rem" aria-label="Sign up button" size="large" severity="danger"> Sign up </pv-button>
         <div class="flex flex-column gap-2" aria-label="Go to sign in section">
           <small id="username-help" aria-label="Do you already have an account? Warning">Do you Already have an account?.</small>
           <router-link to="/sign-in" aria-label="Go to sign in section">
-            <pv-button  class=" w-10rem text-xs sm:text-base sm:w-30rem" aria-label="Sign in button" size="large" severity="primary"> Sign in </pv-button>
+            <pv-button  class="  text-xs sm:text-base  w-15rem lg:w-30rem" aria-label="Sign in button" size="large" severity="primary"> Sign in </pv-button>
           </router-link>
         </div>
       </div>
