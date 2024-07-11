@@ -34,7 +34,6 @@ export default {
         .then((response) => {
           if (response.status === 200) {
             this.reportImg = response.data;
-            console.log(this.reportImg);
           }
         }).catch(() => {
         this.notDataFound = true;
@@ -43,7 +42,7 @@ export default {
   },
   computed: {
     pdfImgUrl() {
-      return `http://localhost:3000/pdfs/${this.certifiedNumber}.pdf`;
+      return `http://localhost:3000/pdfs/${this.certifiedNumber}.pdf#toolbar=0`;
     }
   }
 }
