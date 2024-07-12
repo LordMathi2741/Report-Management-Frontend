@@ -117,7 +117,13 @@ li:nth-child(1):hover{
         font-size: 10px;
     }
 
+    .forms-manager{
+        width: 100%;
+    }
+
 }
+
+
 
 
 

@@ -38,6 +38,12 @@ export default {
         }).catch(() => {
         this.notDataFound = true;
       })
+    },
+    clearParameters(){
+      this.certifiedNumber = "";
+      this.cylinderNumber = "";
+      this.vehicleIdentifier = "";
+      this.emitDate = null;
     }
   },
   computed: {
@@ -49,14 +55,27 @@ export default {
 </script>
 
 <template>
-   <div class="search-report-container p-4 flex flex-column gap-5" aria-label="Search report options content">
-    <div class="flex flex-column md:flex-row gap-2" aria-label="Search report options parameters">
-      <pv-inputext  v-model="certifiedNumber" placeholder="Enter Certified Number" aria-label="Enter certified number"></pv-inputext>
-      <pv-inputext v-model="cylinderNumber" placeholder="Enter Cylinder Number" aria-label="Enter cylinder number"></pv-inputext>
-      <pv-inputext v-model="vehicleIdentifier" placeholder="Enter Vehicle Identifier" aria-label="Enter vehicle identifier"></pv-inputext>
-      <pv-inputext v-model="emitDate" placeholder="Enter Emit Date" aria-label="Enter emit date"></pv-inputext>
+   <div class="search-report-container p-4 flex flex-column lg:flex-row  gap-8" aria-label="Search report options content">
+    <div class="flex flex-column   gap-7" aria-label="Search report options parameters">
+        <div class="flex flex-column forms-manager lg:flex-row  gap-2">
+          <div class="flex flex-row lg:flex-column gap-4">
+            <h3 class="text-xs md:text-xl">Numero de certificado:</h3>
+            <h3 class="text-xs md:text-xl">Numero de cilindro:</h3>
+            <h3 class="text-xs md:text-xl">Identificador de vehiculo:</h3>
+            <h3 class="text-xs md:text-xl">Fecha de emision:</h3>
+          </div>
+          <div class="flex flex-row lg:flex-column gap-2">
+            <pv-inputext class="text-xs md:text-xl" v-model="certifiedNumber" placeholder="Enter Certified Number" aria-label="Enter certified number"></pv-inputext>
+            <pv-inputext class="text-xs md:text-xl" v-model="cylinderNumber" placeholder="Enter Cylinder Number" aria-label="Enter cylinder number"></pv-inputext>
+            <pv-inputext class="text-xs md:text-xl" v-model="vehicleIdentifier" placeholder="Enter Vehicle Identifier" aria-label="Enter vehicle identifier"></pv-inputext>
+            <pv-inputext class="text-xs md:text-xl" v-model="emitDate" placeholder="Enter Emit Date" aria-label="Enter emit date"></pv-inputext>
+          </div>
+        </div>
 
-      <pv-button @click="searchReport" aria-label="Search report pdf button">Search</pv-button>
+      <div class="flex gap-3">
+        <pv-button @click="searchReport" aria-label="Search report pdf button">Search</pv-button>
+        <pv-button severity="danger" @click="clearParameters" aria-label="Clear report parameters button">Clear</pv-button>
+      </div>
     </div>
      <div class="card" v-if="notDataFound" aria-label="Not found report section">
        <p class="text-center text-red-800">No data found</p>
