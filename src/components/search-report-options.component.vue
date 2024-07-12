@@ -23,7 +23,8 @@ export default {
         .then((response) => {
           if (response.status === 200) {
             this.notDataFound = false;
-            this.getReportImg(this.certifiedNumber);
+
+            this.getReportImg(" " + this.certifiedNumber);
           }
         }).catch(() => {
         this.notDataFound = true;

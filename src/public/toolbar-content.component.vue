@@ -36,19 +36,20 @@ export default {
 
 <template>
    <div class="toolbar-manager flex justify-content-between bg-black-alpha-90 p-5" aria-label="Toolbar content">
-      <div class="text-white flex gap-2" aria-label="Company logo">
-         <img src="https://hiperfast.pe/images/logo-hiperfast.png" class="logo-size" alt="Brand logo"/>
+      <div class="text-white flex flex-column gap-2" aria-label="Company logo">
+         <img  src="https://hiperfast.pe/images/logo-hiperfast.png" class="logo-size" alt="Brand logo"/>
+          <h3 class="text-xs md:text-sm lg:text-base">Hiperfast sac</h3>
       </div>
         <div class="hidden lg:block">
           <ul class=" flex flex-column md:flex-row gap-3 sm:text-base md:text-lg">
             <router-link class="router-style" to="/sign-in" aria-label="Go to sign in section">
-              <li> Sign in </li>
+              <li> {{$t('sign_in_section')}}</li>
             </router-link>
             <router-link class="router-style" to="/search" aria-label="Go to search report pdf section">
-              <li> Search </li>
+              <li>{{$t('search_section')}} </li>
             </router-link>
             <router-link class="router-style" to="/profile" aria-label="Go to my profile section">
-              <li> My Profile </li>
+              <li> {{$t('profile_section')}} </li>
             </router-link>
             <li v-if="currentUserName" aria-label="Username details">
               <pv-button icon="pi pi-user" severity="primary" aria-label="User" />
@@ -62,7 +63,7 @@ export default {
           </ul>
         </div>
      <div class="block lg:hidden card flex justify-center">
-       <pv-button type="button" icon="pi pi-bars" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
+       <pv-button class="h-2rem" type="button" icon="pi pi-bars" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
        <pv-menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
      </div>
 

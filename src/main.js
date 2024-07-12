@@ -4,6 +4,7 @@ import App from './App.vue'
 import PrimeVue from 'primevue/config'
 import "primeflex/themes/primeone-light.css";
 import Aura from '@primevue/themes/aura';
+import i18n from './locale/i18n.js';
 import InputText from 'primevue/inputtext';
 import 'primeicons/primeicons.css'
 import Button from 'primevue/button';
@@ -16,6 +17,7 @@ import Menu from 'primevue/menu';
 
 const app = createApp(App)
 app.use(router)
+app.use(i18n)
 app.use(PrimeVue,{
   theme: {
     preset: Aura

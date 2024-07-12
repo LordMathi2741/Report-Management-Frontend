@@ -37,7 +37,7 @@ export default {
 
 <template>
    <div class="sign-up-options ml-4 sm:ml-0" aria-label="Sign up options content">
-    <div class="bg-white p-7 border-round-2xl shadow-4 flex flex-column gap-2" aria-label="Sign up options parameters content">
+    <div class="bg-white p-7 border-round-xl lg:border-round-2xl shadow-4 flex flex-column gap-2" aria-label="Sign up options parameters content">
       <h1 class="text-xs sm:text-sm md:text-base lg:text-xl" aria-label="Sign up options title"> Please give your account details here: </h1>
       <div class="flex flex-column  w-10em sm:w-15rem md:w-30rem gap-5" aria-label="Sign up options parameters">
         <pv-inputext  class="text-xs sm:text-sm md:text-xl" v-model="this.username"  size="large" type="text" placeholder="Please enter your username" aria-label="Please enter your username"/>
