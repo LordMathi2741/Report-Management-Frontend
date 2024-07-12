@@ -60,10 +60,10 @@ export default {
     <div class="flex flex-column   gap-7" aria-label="Search report options parameters">
         <div class="flex flex-column forms-manager lg:flex-row  gap-2">
           <div class="flex flex-row lg:flex-column gap-4">
-            <h3 class="text-xs md:text-xl">Numero de certificado:</h3>
-            <h3 class="text-xs md:text-xl">Numero de cilindro:</h3>
-            <h3 class="text-xs md:text-xl">Identificador de vehiculo:</h3>
-            <h3 class="text-xs md:text-xl">Fecha de emision:</h3>
+            <h3 class="text-xs md:text-xl">{{$t('certified_number')}}:</h3>
+            <h3 class="text-xs md:text-xl">{{$t('cylinder_number')}}:</h3>
+            <h3 class="text-xs md:text-xl">{{$t('vehicle_identifier_number')}}:</h3>
+            <h3 class="text-xs md:text-xl">{{$t('emit_date')}}:</h3>
           </div>
           <div class="flex flex-row lg:flex-column gap-2">
             <pv-inputext class="text-xs md:text-xl" v-model="certifiedNumber" placeholder="Enter Certified Number" aria-label="Enter certified number"></pv-inputext>
@@ -74,8 +74,8 @@ export default {
         </div>
 
       <div class="flex gap-3">
-        <pv-button @click="searchReport" aria-label="Search report pdf button">Search</pv-button>
-        <pv-button severity="danger" @click="clearParameters" aria-label="Clear report parameters button">Clear</pv-button>
+        <pv-button @click="searchReport" aria-label="Search report pdf button">{{$t('search_button')}}</pv-button>
+        <pv-button severity="danger" @click="clearParameters" aria-label="Clear report parameters button">{{$t('clear_button')}}</pv-button>
       </div>
     </div>
      <div class="card" v-if="notDataFound" aria-label="Not found report section">

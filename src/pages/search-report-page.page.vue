@@ -23,7 +23,7 @@ export default {
     <search-report-options/>
   </div>
   <div class="user-sign-in-manager" v-else>
-    <h1 class="text-base md:text-2xl lg:text-5xl text-center" > You are not signed in, please go to sign in </h1>
+    <h1 class="text-base md:text-2xl lg:text-5xl text-center" > {{$t('not_sign_in_warning')}} </h1>
   </div>
 </template>
 

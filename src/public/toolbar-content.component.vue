@@ -20,6 +20,10 @@ export default {
           icon: 'pi pi-user',
           command: () => this.navigate('/profile')
         }
+      ],
+      languages: [
+        {label: 'English', icon: 'pi pi-flag-en', command: () => this.changeLanguage('en')},
+        {label: 'Spanish', icon: 'pi pi-flag-es', command: () => this.changeLanguage('es')}
       ]
     }
   },
@@ -27,8 +31,14 @@ export default {
     toggle(event) {
       this.$refs.menu.toggle(event);
     },
+    languageToggle(event) {
+      this.$refs.global.toggle(event);
+    },
     navigate(path){
       this.$router.push(path)
+    },
+    changeLanguage(lang){
+      this.$i18n.locale = lang;
     }
   }
 }
@@ -51,15 +61,20 @@ export default {
             <router-link class="router-style" to="/profile" aria-label="Go to my profile section">
               <li> {{$t('profile_section')}} </li>
             </router-link>
+            <li>
+              <pv-button icon="pi pi-globe" type="button" @click="languageToggle" aria-haspopup="true" aria-controls="overlay_menu" />
+              <pv-menu ref="global" id="overlay_menu" :model="languages" :popup="true" />
+            </li>
             <li v-if="currentUserName" aria-label="Username details">
               <pv-button icon="pi pi-user" severity="primary" aria-label="User" />
               <p class="text-white">{{currentUserName}}</p>
             </li>
             <li v-else>
               <router-link class="router-style" to="/sign-in" aria-label="Go to sign in section">
-                <pv-button severity="primary" class="text-white" aria-label="Sign in button">Sign in</pv-button>
+                <pv-button severity="primary" class="text-white" aria-label="Sign in button">{{$t('sign_in_section')}}</pv-button>
               </router-link>
             </li>
+
           </ul>
         </div>
      <div class="block lg:hidden card flex justify-center">
