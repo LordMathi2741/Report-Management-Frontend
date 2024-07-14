@@ -45,40 +45,45 @@ export default {
 </script>
 
 <template>
-   <div class="toolbar-manager flex justify-content-between bg-black-alpha-90 p-5" aria-label="Toolbar content">
-      <div class="text-white flex flex-column gap-2" aria-label="Company logo">
+   <div class="toolbar-manager flex justify-content-between bg-white p-5" aria-label="Toolbar content">
+       <div class="text-white flex flex-column gap-2" aria-label="Company logo">
          <img  src="https://hiperfast.pe/images/logo-hiperfast.png" class="logo-size" alt="Brand logo"/>
-          <h3 class="text-xs md:text-sm lg:text-base">Hiperfast sac</h3>
-      </div>
-        <div class="hidden lg:block">
-          <ul class=" flex flex-column md:flex-row gap-3 sm:text-base md:text-lg">
+         <img src="https://hiperfast.pe/images/encabezado_pagina_555.jpg" class="schedule-img lg:hidden"  alt="Schedule"/>
+       </div>
+       <img src="https://hiperfast.pe/images/encabezado_pagina_555.jpg" class="hidden lg:block schedule-img"  alt="Schedule"/>
+        <div class="hidden t lg:block">
+          <ul class=" flex  flex-column md:flex-row gap-3 sm:text-base md:text-lg">
             <router-link class="router-style" to="/sign-in" aria-label="Go to sign in section">
-              <li> {{$t('sign_in_section')}}</li>
+              <li class="text-black-alpha-90"> {{$t('sign_in_section')}}</li>
             </router-link>
             <router-link class="router-style" to="/search" aria-label="Go to search report pdf section">
-              <li>{{$t('search_section')}} </li>
+              <li class="text-black-alpha-90">{{$t('search_section')}} </li>
             </router-link>
             <router-link class="router-style" to="/profile" aria-label="Go to my profile section">
-              <li> {{$t('profile_section')}} </li>
+              <li class="text-black-alpha-90"> {{$t('profile_section')}} </li>
             </router-link>
-            <li>
-              <pv-button icon="pi pi-globe" type="button" @click="languageToggle" aria-haspopup="true" aria-controls="overlay_menu" />
+            <li >
+              <pv-button severity="contrast" icon="pi pi-globe" type="button" @click="languageToggle" aria-haspopup="true" aria-controls="overlay_menu" />
               <pv-menu ref="global" id="overlay_menu" :model="languages" :popup="true" />
             </li>
             <li v-if="currentUserName" aria-label="Username details">
-              <pv-button icon="pi pi-user" severity="primary" aria-label="User" />
+              <pv-button icon="pi pi-user" severity="contrast" rounded aria-label="User" />
               <p class="text-white">{{currentUserName}}</p>
             </li>
             <li v-else>
               <router-link class="router-style" to="/sign-in" aria-label="Go to sign in section">
-                <pv-button severity="primary" class="text-white" aria-label="Sign in button">{{$t('sign_in_section')}}</pv-button>
+                <pv-button severity="contrast" class="text-white" aria-label="Sign in button">{{$t('sign_in_section')}}</pv-button>
               </router-link>
             </li>
 
           </ul>
         </div>
-     <div class="block lg:hidden card flex justify-center">
-       <pv-button class="h-2rem" type="button" icon="pi pi-bars" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
+     <div class="block lg:hidden card flex flex-column gap-2 justify-center">
+       <div>
+         <pv-button severity="contrast" icon="pi pi-globe" type="button" @click="languageToggle" aria-haspopup="true" aria-controls="overlay_menu" />
+         <pv-menu ref="global" id="overlay_menu" :model="languages" :popup="true" />
+       </div>
+       <pv-button severity="contrast" class="h-2rem" type="button" icon="pi pi-bars" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
        <pv-menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
      </div>
 

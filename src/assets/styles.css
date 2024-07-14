@@ -4,6 +4,7 @@
     --minPriorityContainer: 0;
 }
 
+
 *{
     padding: 0;
     margin: 0;
@@ -11,12 +12,42 @@
     overflow-x: hidden;
 }
 
-body {
-    background-color: mediumseagreen;
+.sign-in-container{
+    background-image: url('../assets/backgorundSignin.png');
+    background-size: cover;
+    background-position: center;
+
+    height: 100vh;
+    width: 100vw;
+    filter: contrast(80%);
 }
 
+.sign-up-container{
+    background-image: url('../assets/backgorundSignup.png');
+    background-size: cover;
+    background-position: center;
+
+    height: 100vh;
+    width: 100vw;
+    filter: contrast(80%);
+}
+
+
+.profile-management-container{
+    background-image: url('../assets/backgroundMyProfile.png');
+    background-size: cover;
+    background-position: center;
+
+    height: 100vh;
+    width: 100vw;
+    filter: contrast(80%);
+}
+
+
+
+
 .logo-size{
-    width: 200px;
+    width: 300px;
     height: 50px;
 }
 
@@ -34,6 +65,7 @@ body {
     margin: 0 auto;
 }
 
+
 .footer-manager{
     position: fixed;
     bottom: 0;
@@ -45,6 +77,13 @@ body {
     width: 100%;
     z-index: var(--maxPriorityContainer);
 }
+
+.schedule-img{
+    width: 500px;
+    height: 70px;
+}
+
+
 
 .router-style{
     color:white;
@@ -67,16 +106,18 @@ body {
     margin-top: 10%;
 }
 
-.user-sign-in-manager{
-    display: grid;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 10%;
 
+.not-sign-in-container{
+    background-image: url('../assets/backgroundSearchReport.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    filter: contrast(60%);
 }
 
-.user-sign-in-manager{
-    margin-top: 20%;
+.not-sign-in-container h1{
+    margin-top: 400px;
 }
 small {
     text-align: center;
@@ -124,6 +165,10 @@ li:nth-child(1):hover{
         width: 100px;
         height: 30px;
     }
+    .schedule-img{
+        width: 300px;
+        height: 50px;
+    }
 
 }
 
@@ -135,12 +180,13 @@ li:nth-child(1):hover{
     .sign-in-options{
         margin-top: 35%;
     }
-    .user-sign-in-manager{
-        margin-top: 40%;
-    }
 
     .sign-up-options{
         margin-top: 30%;
+    }
+    .schedule-img{
+        width: 250px;
+        height: 50px;
     }
 
 }
@@ -152,6 +198,10 @@ li:nth-child(1):hover{
     }
     .sign-in-options{
        margin-right:80%;
+    }
+    .schedule-img{
+        width: 200px;
+        height: 30px;
     }
 
 }

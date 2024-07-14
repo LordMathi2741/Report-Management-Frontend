@@ -9,7 +9,9 @@ export default {
 </script>
 
 <template>
-   <sign-up-options/>
+   <div class="sign-up-container">
+     <sign-up-options/>
+   </div>
 </template>
 
 <style scoped>

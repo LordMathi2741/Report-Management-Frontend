@@ -10,9 +10,10 @@ export default {
 </script>
 
 <template>
-  <sign-in-options/>
+  <div class="sign-in-container">
+    <sign-in-options/>
+  </div>
 </template>
 
 <style scoped>
-
 </style>

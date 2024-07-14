@@ -11,7 +11,7 @@ export default {
 
 <template>
    <div class="profile-manager" aria-label="Profile manager content">
-     <h1 class="text-center" aria-label="Profile manager screen title">{{$t('profile_section')}}</h1>
+     <h1 class="text-center text-white" aria-label="Profile manager screen title">{{$t('profile_section')}}</h1>
      <div v-if="currentUserName" class="profile-section" aria-label="Profile section content">
        <div class="bg-white flex flex-column gap-3 p-8 shadow-7 border-round-2xl" aria-label="User profile content">
           <i class="pi pi-user text-6xl" aria-label="User profile icon"></i>

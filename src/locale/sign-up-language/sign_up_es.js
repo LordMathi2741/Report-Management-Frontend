@@ -7,9 +7,9 @@ const es = {
   social_reason: 'Por favor, ingrese su razón social',
   password: 'Por favor, ingrese su contraseña',
   warning_sign_up: '¿Ya tiene una cuenta registrada?',
-  ruc_warning: 'Recuerde que su ruc o email debe contener solo números y tener 11 dígitos.',
-  email_warning: 'Recuerde que necesita enviar un correo electrónico válido.',
-  password_warning: 'Su contraseña debe tener más de 8 letras y contener @.'
+  ruc_warning: 'Recuerde que su ruc o email debe contener solo números y tener 11 dígitos',
+  email_warning: 'Recuerde que necesita enviar un correo electrónico válido',
+  password_warning: 'Su contraseña debe tener más de 8 letras y contener al menos un simbolo'
 }
 
 export default es;

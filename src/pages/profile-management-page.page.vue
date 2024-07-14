@@ -8,7 +8,9 @@ export default {
 </script>
 
 <template>
-   <profile-management/>
+   <div class="profile-management-container">
+     <profile-management/>
+   </div>
 </template>
 
 <style scoped>
