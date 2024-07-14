@@ -71,7 +71,7 @@ export default {
           <small class="text-left text-green-900" aria-label="Your password must to be greater than 8 letters and contains @. Warning" id="username-help">{{$t('password_warning')}}</small>
           <pv-inputext  class="text-xs sm:text-sm" v-model="this.password" size="large" type="password" aria-label="Please enter your password" :placeholder="passwordPlaceholder"/>
         </div>
-        <pv-button @click="signUp"  class=" text-xs sm:text-base  md:w-15rem lg:w-30rem" aria-label="Sign up button" size="large" severity="danger"> {{$t('sign_up')}} </pv-button>
+        <pv-button @click="signUp"  class=" text-xs sm:text-base  md:w-15rem lg:w-30rem" aria-label="Sign up button" size="large" severity="warn"> {{$t('sign_up')}} </pv-button>
         <div class="flex flex-column gap-2" aria-label="Go to sign in section">
           <small id="username-help" aria-label="Do you already have an account? Warning">{{$t('warning_sign_up')}}</small>
           <router-link to="/sign-in" aria-label="Go to sign in section">
