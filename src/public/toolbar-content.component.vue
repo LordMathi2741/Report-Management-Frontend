@@ -68,7 +68,7 @@ export default {
             </li>
             <li v-if="currentUserName" aria-label="Username details">
               <pv-button icon="pi pi-user" severity="contrast" rounded aria-label="User" />
-              <p class="text-white">{{currentUserName}}</p>
+              <p class="text-black-alpha-90">{{currentUserName}}</p>
             </li>
             <li v-else>
               <router-link class="router-style" to="/sign-in" aria-label="Go to sign in section">
