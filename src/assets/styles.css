@@ -204,8 +204,8 @@ li:nth-child(1):hover{
 
 
 @media(width <=420px){
-    .sign-in-scalable-size{
-        width : 100%
+    .sign-in-options-container{
+        width: 400px;
     }
     .sign-in-options{
        margin-right:80%;
