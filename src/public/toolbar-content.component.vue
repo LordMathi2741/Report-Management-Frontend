@@ -1,4 +1,6 @@
 <script>
+import userService from '@/helpers/user.service.js'
+
 export default {
   name: 'toolbar-content',
   data(){
@@ -24,7 +26,8 @@ export default {
       languages: [
         {label: 'English', icon: 'pi pi-flag-en', command: () => this.changeLanguage('en')},
         {label: 'Spanish', icon: 'pi pi-flag-es', command: () => this.changeLanguage('es')}
-      ]
+      ],
+      currentUserType: " "
     }
   },
   methods: {
@@ -40,6 +43,11 @@ export default {
     changeLanguage(lang){
       this.$i18n.locale = lang;
     }
+  },
+  mounted() {
+    userService.getCurrentRole(JSON.parse(sessionStorage.getItem('user'))?.username).then((response) => {
+      this.currentUserType = response.data;
+    })
   }
 }
 </script>
@@ -51,8 +59,8 @@ export default {
          <img src="https://hiperfast.pe/images/encabezado_pagina_555.jpg" class="schedule-img lg:hidden"  alt="Schedule"/>
        </div>
        <img src="https://hiperfast.pe/images/encabezado_pagina_555.jpg" class="hidden lg:block schedule-img"  alt="Schedule"/>
-        <div class="hidden t lg:block">
-          <ul class=" flex  flex-column md:flex-row gap-3 sm:text-base md:text-lg">
+        <div class="hidden xl:block">
+          <ul class=" flex  flex-column lg:flex-row gap-3 sm:text-base md:text-lg">
             <router-link class="router-style" to="/sign-in" aria-label="Go to sign in section">
               <li class="text-black-alpha-90"> {{$t('sign_in_section')}}</li>
             </router-link>
@@ -75,16 +83,28 @@ export default {
                 <pv-button severity="contrast" class="text-white" aria-label="Sign in button">{{$t('sign_in_section')}}</pv-button>
               </router-link>
             </li>
+            <li v-if="currentUserType === 'Admin'">
+              <router-link class="router-style" to="/report-chart" aria-label="Go to admin section">
+                <pv-button severity="contrast" class="text-white" aria-label="Admin button"> Listar reportes </pv-button>
+              </router-link>
+            </li>
 
           </ul>
         </div>
-     <div class="block lg:hidden card flex flex-column gap-2 justify-center">
-       <div>
+     <div class="block xl:hidden card flex flex-column gap-2 justify-center">
+       <div class="mx-auto">
          <pv-button severity="contrast" icon="pi pi-globe" type="button" @click="languageToggle" aria-haspopup="true" aria-controls="overlay_menu" />
          <pv-menu ref="global" id="overlay_menu" :model="languages" :popup="true" />
        </div>
-       <pv-button severity="contrast" class="h-2rem" type="button" icon="pi pi-bars" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
-       <pv-menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
+       <div class="mx-auto">
+         <pv-button severity="contrast" class="h-2rem" type="button" icon="pi pi-bars" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
+         <pv-menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
+       </div>
+       <div v-if="currentUserType === 'Admin'" class="mx-auto">
+         <router-link class="router-style" to="/" aria-label="Go to admin section">
+           <pv-button severity="contrast" class="text-white report-section-btn text-sm" aria-label="Lists reports button"> Listar reportes </pv-button>
+         </router-link>
+       </div>
      </div>
 
    </div>

@@ -12,6 +12,8 @@ import router from './router/router.js'
 import DataTable from 'primevue/datatable';
 import Column from 'primevue/column';
 import Menu from 'primevue/menu';
+import Chart from 'primevue/chart';
+
 
 
 
@@ -28,4 +30,5 @@ app.component('pv-inputext', InputText);
 app.component('pv-datatable', DataTable);
 app.component('pv-column', Column);
 app.component('pv-menu', Menu);
+app.component('pv-chart', Chart);
 app.mount('#app')

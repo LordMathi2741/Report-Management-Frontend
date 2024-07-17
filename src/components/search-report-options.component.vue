@@ -57,19 +57,19 @@ export default {
 
 <template>
    <div class="search-report-container p-4 flex flex-column lg:flex-row  gap-8" aria-label="Search report options content">
-    <div class="flex flex-column   gap-7" aria-label="Search report options parameters">
-        <div class="flex flex-column forms-manager lg:flex-row  gap-2">
-          <div class="flex text-white flex-row lg:flex-column gap-4">
-            <h3 class="text-xs md:text-xl">{{$t('certified_number')}}:</h3>
-            <h3 class="text-xs md:text-xl">{{$t('cylinder_number')}}:</h3>
-            <h3 class="text-xs md:text-xl">{{$t('vehicle_identifier_number')}}:</h3>
-            <h3 class="text-xs md:text-xl">{{$t('emit_date')}}:</h3>
+    <div class="w-full flex flex-column   gap-7" aria-label="Search report options parameters">
+        <div class=" flex flex-column forms-manager lg:flex-row  gap-2">
+          <div class="flex font-bold text-white flex-row lg:flex-column gap-4">
+            <p class="text-xs md:text-xl">{{$t('certified_number')}}:</p>
+            <p class="text-xs md:text-xl">{{$t('cylinder_number')}}:</p>
+            <p class="text-xs md:text-xl">{{$t('vehicle_identifier_number')}}:</p>
+            <p class="text-xs md:text-xl">{{$t('emit_date')}}:</p>
           </div>
-          <div class="flex flex-row lg:flex-column gap-2">
-            <pv-inputext class="text-xs md:text-xl" v-model="certifiedNumber" placeholder="Enter Certified Number" aria-label="Enter certified number"></pv-inputext>
-            <pv-inputext class="text-xs md:text-xl" v-model="cylinderNumber" placeholder="Enter Cylinder Number" aria-label="Enter cylinder number"></pv-inputext>
-            <pv-inputext class="text-xs md:text-xl" v-model="vehicleIdentifier" placeholder="Enter Vehicle Identifier" aria-label="Enter vehicle identifier"></pv-inputext>
-            <pv-inputext class="text-xs md:text-xl" v-model="emitDate" placeholder="Enter Emit Date" aria-label="Enter emit date"></pv-inputext>
+          <div class=" flex flex-row lg:flex-column gap-2">
+            <pv-inputext class="text-xs md:text-base" v-model="certifiedNumber" placeholder="Enter Certified Number" aria-label="Enter certified number"></pv-inputext>
+            <pv-inputext class="text-xs md:text-base" v-model="cylinderNumber" placeholder="Enter Cylinder Number" aria-label="Enter cylinder number"></pv-inputext>
+            <pv-inputext class="text-xs md:text-base" v-model="vehicleIdentifier" placeholder="Enter Vehicle Identifier" aria-label="Enter vehicle identifier"></pv-inputext>
+            <pv-inputext class="text-xs md:text-base" v-model="emitDate" placeholder="Enter Emit Date" aria-label="Enter emit date"></pv-inputext>
           </div>
         </div>
 

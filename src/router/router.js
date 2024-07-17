@@ -8,6 +8,7 @@ const router = createRouter({
     {path:'/search', component: () => import('../pages/search-report-page.page.vue')},
     {path:'/sign-up', component: () => import('../pages/sign-up-page.page.vue')},
     {path:'/profile', component: () => import('../pages/profile-management-page.page.vue')},
+    {path:'/report-chart', component: () => import('../pages/report-chart-page.page.vue')},
   ]
 })
 

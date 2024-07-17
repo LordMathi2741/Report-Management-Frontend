@@ -7,6 +7,9 @@ class UserService{
    signUpUser(user){
       return BaseService.post(`/Users`, user);
    }
+  static  getCurrentRole(username){
+      return BaseService.get(`/Users/getUserRoleByUsername/${username}`);
+   }
 }
 
 export default UserService;

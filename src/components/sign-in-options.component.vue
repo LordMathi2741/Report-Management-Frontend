@@ -49,7 +49,7 @@ export default {
       <div class="flex flex-column gap-2">
         <small id="username-help" aria-label="Do you dont have an account yet? Warning">{{$t('warning')}}</small>
         <router-link to="/sign-up" aria-label="Go to sign up section">
-          <pv-button  class=" w-15rem text-xs sm:text-base sm:w-20rem md:w-30rem" aria-label="Sign up button"  size="large" severity="warn"> {{$t('sign_up')}} </pv-button>
+          <pv-button  class=" w-10rem text-xs sm:text-base sm:w-20rem md:w-30rem" aria-label="Sign up button"  size="large" severity="warn"> {{$t('sign_up')}} </pv-button>
         </router-link>
       </div>
     </div>
