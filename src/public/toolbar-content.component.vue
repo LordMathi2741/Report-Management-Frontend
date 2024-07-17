@@ -74,9 +74,9 @@ export default {
               <pv-button severity="contrast" icon="pi pi-globe" type="button" @click="languageToggle" aria-haspopup="true" aria-controls="overlay_menu" />
               <pv-menu ref="global" id="overlay_menu" :model="languages" :popup="true" />
             </li>
-            <li v-if="currentUserName" aria-label="Username details">
-              <pv-button icon="pi pi-user" severity="contrast" rounded aria-label="User" />
-              <p class="text-black-alpha-90">{{currentUserName}}</p>
+            <li class="flex flex-column gap-1"  v-if="currentUserName" aria-label="Username details">
+              <pv-button class="mx-auto" icon="pi pi-user" severity="contrast" rounded aria-label="User" />
+              <p class="text-black-alpha-90 text-center">{{currentUserName}}</p>
             </li>
             <li v-else>
               <router-link class="router-style" to="/sign-in" aria-label="Go to sign in section">
@@ -85,7 +85,7 @@ export default {
             </li>
             <li v-if="currentUserType === 'Admin'">
               <router-link class="router-style" to="/report-chart" aria-label="Go to admin section">
-                <pv-button severity="contrast" class="text-white" aria-label="Admin button"> Listar reportes </pv-button>
+                <pv-button severity="contrast" class="text-white" aria-label="Admin button"> {{$t('report_list')}} </pv-button>
               </router-link>
             </li>
 

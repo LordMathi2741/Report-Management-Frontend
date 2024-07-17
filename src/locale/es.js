@@ -4,6 +4,7 @@ import sign_in_es from '@/locale/sign-in-language/sign_in_es.js'
 import sign_up_es from '@/locale/sign-up-language/sign_up_es.js'
 import profile_es from '@/locale/profile-management-language/profile_es.js'
 import search_report_es from '@/locale/search-report-language/search_report_es.js'
+import report_chart_es from '@/locale/report-chart-language/report_chart_es.js'
 
 const es = {
     ...toolbar_es,
@@ -11,6 +12,7 @@ const es = {
     ...sign_in_es,
     ...sign_up_es,
     ...profile_es,
-    ...search_report_es
+    ...search_report_es,
+    ...report_chart_es
 }
 export default es;

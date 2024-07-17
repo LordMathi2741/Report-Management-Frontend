@@ -8,13 +8,21 @@ export default {
     return {
       chartData: null,
       chartOptions: null,
-      brand: ' ',
+      brand: null,
       reports: null,
       year : null
     };
   },
   mounted() {
     this.chartOptions = this.setChartOptions();
+  },
+  computed: {
+    brandPlaceHolder() {
+      return this.$t('report_chart_brand_placeholder');
+    },
+    yearPlaceHolder() {
+      return this.$t('report_chart_year_placeholder');
+    },
   },
   methods: {
     setChartData() {
@@ -85,10 +93,18 @@ export default {
 
 <template>
   <div class="chart-container ">
-   <div class="flex flex-column lg:flex-row gap-4">
-     <pv-inputext v-model="brand" size="large"  type="text" placeholder="Please enter a brand"  aria-label="Search reports by brand input button"  />
-     <pv-inputext v-model="year" size="large"  type="text" placeholder="Please enter a year"  aria-label="Search reports by year input button"  />
-     <pv-button severity="success" label="Search" @click="searchReportsByBrand" />
+    <div  class="flex  flex-column lg:flex-row gap-4">
+     <router-link to="/report-chart-operation-center">
+       <pv-button severity="contrast" > Filtrar por taller </pv-button>
+     </router-link>
+      <router-link to="/report-chart-type">
+        <pv-button severity="contrast" > Filtrar por tipo </pv-button>
+      </router-link>
+    </div>
+   <div class="flex  flex-column lg:flex-row gap-4">
+     <pv-inputext class="text-sm" v-model="brand" size="large"  type="text" :placeholder="brandPlaceHolder"  aria-label="Search reports by brand input button"/>
+     <pv-inputext class="text-sm" v-model="year" size="large"  type="text" :placeholder="yearPlaceHolder"  aria-label="Search reports by year input button" />
+     <pv-button severity="success" @click="searchReportsByBrand"> {{$t('search_button')}} </pv-button>
    </div>
     <div class="chart-manager">
       <pv-chart type="bar" :data="chartData" :options="chartOptions" />

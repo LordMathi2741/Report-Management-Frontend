@@ -8,6 +8,12 @@ class ReportsService {
   static countReportsByBrandAndYear(brand,year){
       return BaseService.get('/Reports/brand/'+brand +'/'+year)
   }
+  static countReportsByOperationCenterAndYear(year,month){
+      return BaseService.get('/Reports/getTotalReportsByOperationCenterByYearAndMonth/'+year+'/'+month)
+  }
+  static countReportsTypeByYearAndMonth(year,month){
+      return BaseService.get('/Reports/countReportsTypeByYearAndMonth/'+year+'/'+month)
+  }
 }
 
 export default  ReportsService

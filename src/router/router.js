@@ -9,6 +9,8 @@ const router = createRouter({
     {path:'/sign-up', component: () => import('../pages/sign-up-page.page.vue')},
     {path:'/profile', component: () => import('../pages/profile-management-page.page.vue')},
     {path:'/report-chart', component: () => import('../pages/report-chart-page.page.vue')},
+    {path:'/report-chart-operation-center', component: () => import('../pages/report-chart-operation-center-page.page.vue')},
+    {path:'/report-chart-type', component: () => import('../pages/report-chart-type-page.page.vue')},
   ]
 })
 

@@ -17,6 +17,7 @@
     height: 35px;
 }
 
+
 .sign-in-container{
     background-image: url('../assets/backgorundSignin.png');
     background-size: cover;
@@ -37,6 +38,23 @@
     filter: contrast(80%);
 }
 
+.unauthorized-container{
+    padding-top: 300px;
+}
+
+.chart-container-bars{
+    margin: 0 auto;
+    padding-top: 200px;
+    display: grid;
+    gap:20px;
+}
+
+.chart-type-container{
+    width: 500px;
+    padding-top: 200px;
+    display: grid;
+    gap: 20px;
+}
 
 .profile-management-container{
     background-image: url('../assets/backgroundMyProfile.png');
@@ -52,7 +70,7 @@
     display: grid;
     place-items: center;
     gap: 20px;
-    padding-top: 300px;
+    padding-top: 200px;
 }
 
 .chart-manager{
@@ -79,11 +97,7 @@
 }
 
 
-.search-report-container {
-    position: absolute;
-    top: 30%;
-    left: 10%;
-}
+
 
 
 .modifiable {
@@ -171,15 +185,42 @@ li:nth-child(1):hover{
     transition: 1s ease all;
 }
 
+@media (width <= 1257px) {
+    .pdf-screen-manager{
+     height: 800px;
+    }
+}
+@media(width<=950px){
+    .pdf-screen-manager{
+        height: 600px;
+    }
+}
+@media(width<=732px){
+    .pdf-screen-manager{
+        height: 550px;
+    }
+}
+@media(width<=642px){
+    .pdf-screen-manager{
+        height: 400px;
+    }
+}
+@media(width<=432px){
+    .pdf-screen-manager{
+        height: 300px;
+    }
+}
+
+
+
+
+
 
 @media (width <= 768px) {
     .search-report-container{
         width: 80%;
     }
 
-    .pdf-screen-manager{
-        width: 300px;
-    }
 
     .modifiable{
         font-size: 10px;
@@ -203,11 +244,23 @@ li:nth-child(1):hover{
     .chart-manager {
         width: 800px;
     }
+    .chart-container-bars{
+        width: 600px;
+    }
+    .chart-type-container{
+        width: 400px;
+    }
 }
 
 @media(width <=778px){
     .chart-manager {
         width: 600px;
+    }
+    .chart-container-bars{
+        width: 400px;
+    }
+    .chart-type-container{
+        width: 300px;
     }
 }
 
@@ -215,11 +268,20 @@ li:nth-child(1):hover{
     .chart-manager {
         width: 400px;
     }
+    .chart-container-bars{
+        width: 300px;
+    }
+    .chart-type-container{
+        width: 200px;
+    }
 }
 
 @media(width <= 400px){
     .chart-manager {
         width: 300px;
+    }
+    .chart-container-bars{
+        width: 200px;
     }
 }
 
