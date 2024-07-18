@@ -11,27 +11,36 @@ export default {
       userService: new UserService(),
     }
   },
-  methods:{
-      signIn(){
-        this.userService.getUserByEmailAndPassword(this.email, this.password).then((response) => {
-          if(response.status === 200){
-            alert("Sign in success")
-            sessionStorage.setItem('user', JSON.stringify(response.data))
-          }
-        }).catch(() => {
-          alert("Email or password wrong")
-        });
+  methods: {
+    async signIn() {
+      try {
+        const response = await this.userService.signInUser(this.email, this.password);
+        localStorage.setItem('token', JSON.stringify(response.data));
+        alert("Sign in success");
+        await this.fetchAndStoreUserInfo();
+      } catch (error) {
+        alert("Email or password wrong");
       }
-  },
-  computed: {
-    email_placeholder(){
-      return this.$t('email')
     },
-    password_placeholder(){
-      return this.$t('password')
+    async fetchAndStoreUserInfo() {
+      try {
+        const response = await this.userService.getUserNameByEmail(this.email);
+        if (response.status === 200) {
+          sessionStorage.setItem('user', JSON.stringify(response.data));
+        }
+      } catch (error) {
+        alert("Error");
+      }
     }
-
-  }
+  },
+    computed: {
+      email_placeholder() {
+        return this.$t('email')
+      },
+      password_placeholder() {
+        return this.$t('password')
+      }
+    }
 }
 </script>
 

@@ -1,5 +1,4 @@
 import BaseService from '@/service/http-common.service.js'
-
 class ReportsService {
   reportExistsByImgByCertifiedNumberAndCylinderNumberAndEmitDateAndVehicleIdentifier(certifiedNumber,
   cylinderNumber, emitDate, vehicleIdentifier){
