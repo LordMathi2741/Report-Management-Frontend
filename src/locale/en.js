@@ -5,6 +5,7 @@ import sign_up_en from '@/locale/sign-up-language/sign_up_en.js'
 import profile_en from '@/locale/profile-management-language/profile_en.js'
 import search_report_en from '@/locale/search-report-language/search_report_en.js'
 import report_chart_en from '@/locale/report-chart-language/report_chart_en.js'
+import search_report_details_en from '@/locale/search-report-details-language/search_report_details_en.js'
 
 const en = {
     ...toolbar_en,
@@ -13,6 +14,7 @@ const en = {
   ...sign_up_en,
   ...profile_en,
   ...search_report_en,
-  ...report_chart_en
+  ...report_chart_en,
+  ...search_report_details_en
 }
 export default en;

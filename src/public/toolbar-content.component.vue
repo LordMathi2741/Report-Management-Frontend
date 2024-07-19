@@ -24,8 +24,8 @@ export default {
         }
       ],
       languages: [
-        {label: 'English', icon: 'pi pi-flag-en', command: () => this.changeLanguage('en')},
-        {label: 'Spanish', icon: 'pi pi-flag-es', command: () => this.changeLanguage('es')}
+        {label: 'English', icon: 'pi pi-flag-search_report_details_en', command: () => this.changeLanguage('en')},
+        {label: 'Spanish', icon: 'pi pi-flag-search_report_details_es', command: () => this.changeLanguage('es')}
       ],
       currentUserType: " "
     }

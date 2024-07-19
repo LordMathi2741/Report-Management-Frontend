@@ -6,5 +6,6 @@ const search_report_en = {
   cylinder_number:'Cylinder Number',
   vehicle_identifier_number:'Vehicle Identifier Number',
   emit_date:'Emit Date',
+  warning: 'Your navigator does not support this format'
 }
 export default search_report_en;

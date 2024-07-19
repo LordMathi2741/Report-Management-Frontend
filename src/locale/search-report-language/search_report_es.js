@@ -6,6 +6,7 @@ const search_report_es = {
     cylinder_number:'Número de Cilindro',
     vehicle_identifier_number:'Número de Identificación del Vehículo',
     emit_date:'Fecha de Emisión',
+    warning : 'Tu navegador no soporta este formato'
 }
 
 export default search_report_es;

@@ -52,6 +52,18 @@ export default {
   computed: {
     pdfImgUrl() {
       return `http://localhost:3000/pdfs/${this.certifiedNumber}.pdf#toolbar=0`;
+    },
+    cylinderNumberPlaceholder() {
+      return this.$t('cylinder_number_placeholder');
+    },
+    vehicleIdentifierPlaceholder() {
+      return this.$t('vehicle_identifier_placeholder');
+    },
+    emitDatePlaceholder() {
+      return this.$t('emit_date_placeholder');
+    },
+    certifiedNumberPlaceholder() {
+      return this.$t('certificate_number_placeholder');
     }
   }
 }
@@ -68,10 +80,10 @@ export default {
             <p class="text-xs md:text-xl">{{$t('emit_date')}}:</p>
           </div>
           <div class=" flex flex-column w-10rem sm:w-15rem gap-2">
-            <pv-inputext class="text-xs md:text-base" v-model="certifiedNumber" placeholder="Enter Certified Number" aria-label="Enter certified number"></pv-inputext>
-            <pv-inputext class="text-xs md:text-base" v-model="cylinderNumber" placeholder="Enter Cylinder Number" aria-label="Enter cylinder number"></pv-inputext>
-            <pv-inputext class="text-xs md:text-base" v-model="vehicleIdentifier" placeholder="Enter Vehicle Identifier" aria-label="Enter vehicle identifier"></pv-inputext>
-            <pv-inputext class="text-xs md:text-base" v-model="emitDate" placeholder="Enter Emit Date" aria-label="Enter emit date"></pv-inputext>
+            <pv-inputext class="text-xs md:text-base" v-model="certifiedNumber" :placeholder="certifiedNumberPlaceholder" aria-label="Enter certified number"></pv-inputext>
+            <pv-inputext class="text-xs md:text-base" v-model="cylinderNumber" :placeholder="cylinderNumberPlaceholder" aria-label="Enter cylinder number"></pv-inputext>
+            <pv-inputext class="text-xs md:text-base" v-model="vehicleIdentifier" :placeholder="vehicleIdentifierPlaceholder" aria-label="Enter vehicle identifier"></pv-inputext>
+            <pv-inputext class="text-xs md:text-base" v-model="emitDate" :placeholder="emitDatePlaceholder" aria-label="Enter emit date"></pv-inputext>
             <div class="flex gap-3 flex ">
               <pv-button @click="searchReport" aria-label="Search report pdf button">{{$t('search_button')}}</pv-button>
               <pv-button severity="warn" @click="clearParameters" aria-label="Clear report parameters button">{{$t('clear_button')}}</pv-button>
@@ -85,7 +97,7 @@ export default {
           <pv-button severity="warn" @click="clearParameters" aria-label="Clear report parameters button">{{$t('clear_button')}}</pv-button>
         </div>
         <iframe :src="pdfImgUrl" class="pdf-screen-manager" width="900" height="1030">
-          Tu navegador no soporta el elemento <code>iframe</code>.
+         {{$t('warning')}} <code>iframe</code>.
         </iframe>
       </div>
 
