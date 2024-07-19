@@ -1,5 +1,4 @@
 <script>
-
 import reportsService from '@/helpers/reports.service.js'
 import { isTokenExpired } from '@/helpers/verify-token.service.js'
 
