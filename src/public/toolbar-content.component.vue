@@ -101,8 +101,8 @@ export default {
          <pv-menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
        </div>
        <div v-if="currentUserType === 'Admin'" class="mx-auto">
-         <router-link class="router-style" to="/" aria-label="Go to admin section">
-           <pv-button severity="contrast" class="text-white report-section-btn text-sm" aria-label="Lists reports button"> Listar reportes </pv-button>
+         <router-link class="router-style" to="/report-chart" aria-label="Go to admin section">
+           <pv-button severity="contrast" class="text-white report-section-btn text-sm" aria-label="Lists reports button"> {{$t('report_list')}} </pv-button>
          </router-link>
        </div>
      </div>
