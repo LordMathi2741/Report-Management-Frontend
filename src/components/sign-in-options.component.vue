@@ -16,7 +16,7 @@ export default {
       try {
         const response = await this.userService.signInUser(this.email, this.password);
         localStorage.setItem('token', JSON.stringify(response.data));
-        alert("Sign in success, your token expired in 1 hour");
+        alert("Sign in success, your token will expire in 1 hour");
         await this.fetchAndStoreUserInfo();
       } catch (error) {
         alert("Email or password wrong");
