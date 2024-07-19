@@ -74,22 +74,22 @@ export default {
 
 <template>
   <div class="search-report-details-container">
-    <h1 class="text-sm md:text-base lg:text-2xl"> {{$t('search_report_details_title')}}:</h1>
+    <h1 class="text-sm md:text-base lg:text-2xl text-center"> {{$t('search_report_details_title')}}:</h1>
     <div class="flex flex-column lg:flex-row  gap-3">
-      <pv-inputext class="custom-btn-size"  v-model="cylinderNumber" :placeholder="cylinderNumberPlaceholder" size="large"/>
-      <pv-inputext class="custom-btn-size"  v-model="vehicleIdentifier" :placeholder="vehicleIdentifierPlaceholder" size="large"/>
+      <pv-inputext class="custom-btn-size text-sm"  v-model="cylinderNumber" :placeholder="cylinderNumberPlaceholder" size="large"/>
+      <pv-inputext class="custom-btn-size text-sm"  v-model="vehicleIdentifier" :placeholder="vehicleIdentifierPlaceholder" size="large"/>
     </div>
     <pv-button @click="searchReport" size="large" severity="primary"> {{$t('search_report_details_button')}}</pv-button>
-    <div>
-       <pv-datatable :value="reports" table-style="min-width: 50rem">
-         <pv-column field="certificationNumber" :header="certificateNumberHeader"></pv-column>
-         <pv-column field="cylinderNumber" :header="cylinderNumberHeader"></pv-column>
-          <pv-column field="vehicleIdentifier" :header="vehicleIdentifierHeader"></pv-column>
-         <pv-column field="brand" :header="brandHeader"></pv-column>
-         <pv-column field="madeDate" :header="madeDateHeader"></pv-column>
-         <pv-column field="emitDate" :header="emitDateHeader"></pv-column>
-         <pv-column field="type" :header="typeHeader"></pv-column>
-         <pv-column field="operationCenter" :header="operationCenterHeader"></pv-column>
+    <div class="search-report-details-table-container ">
+       <pv-datatable class=" border-3 border-black-alpha-20 "  resizable-columns column-resize-mode="expand" :value="reports" table-style="min-width: 50rem">
+         <pv-column class=" border-1  bg-green-400 text-black-alpha-90 font-bold" field="certificationNumber" :header="certificateNumberHeader"></pv-column>
+         <pv-column  class="border-1   bg-green-400 text-black-alpha-90 font-bold" field="cylinderNumber" :header="cylinderNumberHeader"></pv-column>
+          <pv-column  class="border-1   bg-green-400 text-black-alpha-90 font-bold" field="vehicleIdentifier" :header="vehicleIdentifierHeader"></pv-column>
+         <pv-column  class="border-1   bg-green-400 text-black-alpha-90 font-bold" field="brand" :header="brandHeader"></pv-column>
+         <pv-column  class="border-1  bg-green-400 text-black-alpha-90 font-bold" field="madeDate" :header="madeDateHeader"></pv-column>
+         <pv-column  class="border-1  bg-green-400 text-black-alpha-90 font-bold" field="emitDate" :header="emitDateHeader"></pv-column>
+         <pv-column  class="border-1  bg-green-400 text-black-alpha-90 font-bold" field="type" :header="typeHeader"></pv-column>
+         <pv-column  class="border-1 bg-green-400 text-black-alpha-90 font-bold" field="operationCenter" :header="operationCenterHeader"></pv-column>
        </pv-datatable>
     </div>
   </div>
