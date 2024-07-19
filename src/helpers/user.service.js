@@ -6,7 +6,7 @@ class UserService{
       return BaseService.get(`/Users/sign-in/${email}/${password}`);
    }
    signUpUser(user){
-      return BaseService.post(`/Users`, user);
+      return BaseService.post(`/Users/sign-up`, user);
    }
    getUserNameByEmail(email){
       return BaseService.get(`/Users/getUsername/${email}`);

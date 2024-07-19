@@ -17,6 +17,17 @@
     height: 35px;
 }
 
+.search-report-details-container{
+    padding-top: 200px;
+    display: grid;
+    gap: 20px;
+    place-items: center;
+}
+
+.custom-btn-size{
+    width: 250px;
+}
+
 
 .sign-in-container{
     background-image: url('../assets/backgorundSignin.png');

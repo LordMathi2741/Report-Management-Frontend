@@ -13,6 +13,15 @@ class ReportsService {
   static countReportsTypeByYearAndMonth(year,month){
       return BaseService.get('/Reports/countReportsTypeByYearAndMonth/'+year+'/'+month)
   }
+  static getReportByCylinderNumber(cylinderNumber){
+    return BaseService.get('Reports/cylinder-number/'+cylinderNumber)
+  }
+  static getReportByVehicleIdentifier(vehicleIdentifier){
+    return BaseService.get('Reports/vehicle-identifier/'+vehicleIdentifier)
+  }
+  static getAllReports(){
+    return BaseService.get('Reports')
+  }
 }
 
 export default  ReportsService

@@ -11,6 +11,7 @@ const router = createRouter({
     {path:'/report-chart', component: () => import('../pages/report-chart-page.page.vue')},
     {path:'/report-chart-operation-center', component: () => import('../pages/report-chart-operation-center-page.page.vue')},
     {path:'/report-chart-type', component: () => import('../pages/report-chart-type-page.page.vue')},
+    {path: '/report-details', component : ()=> import('../pages/search-report-details-page.page.vue')}
   ]
 })
 

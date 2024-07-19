@@ -93,7 +93,7 @@ export default {
     <div class="flex flex-column lg:flex-row gap-3 justify-content-center">
       <pv-inputext class="text-sm" v-model="year" size="large"  type="text" :placeholder="yearPlaceHolder"  aria-label="Search reports by year input button" />
       <pv-inputext class="text-sm" v-model="month" size="large"  type="text" :placeholder="monthPlaceHolder"  aria-label="Search reports by month input button" />
-      <pv-button @click="searchReportsByYearAndMonth" severity="contrast" > {{$t('search_button')}} </pv-button>
+      <pv-button @click="searchReportsByYearAndMonth" severity="primary" > {{$t('search_button')}} </pv-button>
     </div>
     <pv-chart type="bar" :data="chartData" :options="chartOptions" class=" h-30rem" />
   </div>

@@ -100,11 +100,14 @@ export default {
       <router-link to="/report-chart-type">
         <pv-button severity="contrast" > Filtrar por tipo </pv-button>
       </router-link>
+      <router-link to="/report-details">
+        <pv-button severity="contrast" > Buscar detalles </pv-button>
+      </router-link>
     </div>
    <div class="flex  flex-column lg:flex-row gap-4">
      <pv-inputext class="text-sm" v-model="brand" size="large"  type="text" :placeholder="brandPlaceHolder"  aria-label="Search reports by brand input button"/>
      <pv-inputext class="text-sm" v-model="year" size="large"  type="text" :placeholder="yearPlaceHolder"  aria-label="Search reports by year input button" />
-     <pv-button severity="success" @click="searchReportsByBrand"> {{$t('search_button')}} </pv-button>
+     <pv-button severity="primary" @click="searchReportsByBrand"> {{$t('search_button')}} </pv-button>
    </div>
     <div class="chart-manager">
       <pv-chart type="bar" :data="chartData" :options="chartOptions" />
