@@ -1,6 +1,7 @@
 <script>
 import ReportsService from '@/helpers/reports.service.js'
 import ReportImgService from '@/helpers/report-img.service.js'
+import { isTokenExpired } from '@/helpers/verify-token.service.js'
 
 export default {
   name: 'search-report-options',
@@ -64,6 +65,13 @@ export default {
     },
     certifiedNumberPlaceholder() {
       return this.$t('certificate_number_placeholder');
+    }
+  },
+  created() {
+    const token = JSON.parse(localStorage.getItem('token'));
+    if (token && isTokenExpired(token)) {
+      alert("Your token is expired, please sign in again");
+      this.$router.push('/sign-in');
     }
   }
 }

@@ -1,9 +1,18 @@
 <script>
+import { isTokenExpired } from '@/helpers/verify-token.service.js'
+
 export default {
   name: 'profile-management',
   data(){
     return {
        currentUserName: JSON.parse(sessionStorage.getItem('user'))?.username
+    }
+  },
+  created() {
+    const token = JSON.parse(localStorage.getItem('token'));
+    if (token && isTokenExpired(token)) {
+      alert("Your token is expired, please sign in again");
+      this.$router.push('/sign-in');
     }
   }
 }

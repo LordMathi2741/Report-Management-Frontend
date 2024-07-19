@@ -2,6 +2,7 @@
 
 
 import ReportsService from '@/helpers/reports.service.js'
+import { isTokenExpired } from '@/helpers/verify-token.service.js'
 export default {
   name: 'search-report-details',
   data(){
@@ -68,6 +69,13 @@ export default {
      vehicleIdentifierHeader() {
        return this.$t('vehicle_identifier_header');
      },
+  },
+  created() {
+    const token = JSON.parse(localStorage.getItem('token'));
+    if (token && isTokenExpired(token)) {
+      alert("Your token is expired, please sign in again");
+      this.$router.push('/sign-in');
+    }
   }
 }
 </script>
