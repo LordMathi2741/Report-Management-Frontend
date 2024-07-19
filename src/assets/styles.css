@@ -17,6 +17,7 @@
     height: 35px;
 }
 
+
 .search-report-details-container{
     padding-top: 200px;
     display: grid;
@@ -129,7 +130,9 @@
     width: 100%;
     z-index: var(--maxPriorityContainer);
 }
-
+.toolbar-options-container{
+    width: 600px;
+}
 .schedule-img{
     width: 500px;
     height: 70px;
@@ -138,7 +141,6 @@
 
 
 .router-style{
-    color:white;
     text-decoration: none;
 }
 
@@ -189,8 +191,9 @@ small {
 }
 
 
+
 li:nth-child(1):hover{
-    color: limegreen;
+    color: mediumseagreen;
     cursor: pointer;
     scale: var(--scalableSize);
     transition: 1s ease all;

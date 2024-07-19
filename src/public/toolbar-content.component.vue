@@ -59,16 +59,16 @@ export default {
          <img src="https://hiperfast.pe/images/encabezado_pagina_555.jpg" class="schedule-img lg:hidden"  alt="Schedule"/>
        </div>
        <img src="https://hiperfast.pe/images/encabezado_pagina_555.jpg" class="hidden lg:block schedule-img"  alt="Schedule"/>
-        <div class="hidden xl:block">
-          <ul class=" flex  flex-column lg:flex-row gap-3 sm:text-base md:text-lg">
-            <router-link class="router-style" to="/sign-in" aria-label="Go to sign in section">
-              <li class="text-black-alpha-90"> {{$t('sign_in_section')}}</li>
+        <div class="hidden xl:block ">
+          <ul class="flex flex-column lg:flex-row gap-3 sm:text-base md:text-lg">
+            <router-link class="router-style pl-1 pr-1 " to="/sign-in" aria-label="Go to sign in section">
+              <li class="text-black-alpha-90 hover:text-green-700"> {{$t('sign_in_section')}}</li>
             </router-link>
-            <router-link class="router-style" to="/search" aria-label="Go to search report pdf section">
-              <li class="text-black-alpha-90">{{$t('search_section')}} </li>
+            <router-link class="router-style pl-1 pr-1" to="/search" aria-label="Go to search report pdf section">
+              <li class="text-black-alpha-90 hover:text-green-700">{{$t('search_section')}} </li>
             </router-link>
-            <router-link class="router-style" to="/profile" aria-label="Go to my profile section">
-              <li class="text-black-alpha-90"> {{$t('profile_section')}} </li>
+            <router-link class="router-style pl-1 pr-1" to="/profile" aria-label="Go to my profile section">
+              <li class="text-black-alpha-90 hover:text-green-700"> {{$t('profile_section')}} </li>
             </router-link>
             <li >
               <pv-button severity="contrast" icon="pi pi-globe" type="button" @click="languageToggle" aria-haspopup="true" aria-controls="overlay_menu" />
