@@ -67,7 +67,7 @@ export default {
         );
     },
   },
-  created() {
+  mounted() {
     const token = JSON.parse(localStorage.getItem('token'));
     if (token && isTokenExpired(token)) {
       alert("Your token is expired, please sign in again");

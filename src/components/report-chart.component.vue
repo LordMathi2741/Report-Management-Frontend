@@ -15,6 +15,11 @@ export default {
     };
   },
   mounted() {
+    const token = JSON.parse(localStorage.getItem('token'));
+    if (token && isTokenExpired(token)) {
+      alert("Your token is expired, please sign in again");
+      this.$router.push('/sign-in');
+    }
     this.chartOptions = this.setChartOptions();
   },
   computed: {
@@ -89,13 +94,6 @@ export default {
       };
     }
   },
-  created() {
-    const token = JSON.parse(localStorage.getItem('token'));
-    if (token && isTokenExpired(token)) {
-      alert("Your token is expired, please sign in again");
-      this.$router.push('/sign-in');
-    }
-  }
 }
 </script>
 
