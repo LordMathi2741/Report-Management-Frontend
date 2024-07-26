@@ -101,13 +101,13 @@ export default {
   <div class="chart-container ">
     <div  class="flex  flex-column lg:flex-row gap-4">
      <router-link to="/report-chart-operation-center">
-       <pv-button severity="contrast" > Filtrar por taller </pv-button>
+       <pv-button severity="contrast" >{{$t('filter_operation_center')}} </pv-button>
      </router-link>
       <router-link to="/report-chart-type">
-        <pv-button severity="contrast" > Filtrar por tipo </pv-button>
+        <pv-button severity="contrast" > {{$t('filter_type')}} </pv-button>
       </router-link>
       <router-link to="/report-details">
-        <pv-button severity="contrast" > Buscar detalles </pv-button>
+        <pv-button severity="contrast" > {{$t('search_details')}} </pv-button>
       </router-link>
     </div>
    <div class="flex  flex-column lg:flex-row gap-4">

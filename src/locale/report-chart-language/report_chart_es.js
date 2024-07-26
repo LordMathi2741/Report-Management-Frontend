@@ -2,5 +2,8 @@ const es = {
   report_chart_brand_placeholder : 'Porfavor ingrese marca:',
   report_chart_year_placeholder : 'Porfavor ingrese el año:',
   report_chart_month_placeholder : 'Porfavor ingrese el mes:',
+  filter_operation_center:'Filtrar por taller',
+  filter_type : 'Filtrar por tipo',
+  search_details: 'Buscar detalles',
 }
 export default es;
