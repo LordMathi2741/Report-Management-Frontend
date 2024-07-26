@@ -31,7 +31,11 @@
 
 
 .sign-in-container{
-    background-image: url('../assets/backgorundSignin.png');
+    background-image:  linear-gradient(
+            to top right,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+    ), url('../assets/backgorundSignin.png');
     background-size: cover;
     background-position: center;
 
@@ -41,7 +45,11 @@
 }
 
 .sign-up-container{
-    background-image: url('../assets/backgorundSignup.png');
+    background-image:  linear-gradient(
+            to top right,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+    ), url('../assets/backgorundSignup.png');
     background-size: cover;
     background-position: center;
 
@@ -69,7 +77,11 @@
 }
 
 .profile-management-container{
-    background-image: url('../assets/backgroundMyProfile.png');
+    background-image: linear-gradient(
+            to top right,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+    ), url('../assets/backgroundMyProfile.png');
     background-size: cover;
     background-position: center;
 
@@ -90,7 +102,11 @@
 }
 
 .search-container{
-    background-image: url('../assets/backgroundSearchReport.png');
+    background-image: linear-gradient(
+            to top right,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+    ), url('../assets/backgroundSearchReport.png');
     background-size: cover;
     background-position: center;
 
