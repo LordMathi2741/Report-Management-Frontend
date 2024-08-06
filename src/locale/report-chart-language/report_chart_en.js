@@ -5,5 +5,6 @@ const en = {
   filter_operation_center:'Filter by operation center',
   filter_type : 'Filter by type',
   search_details: 'Search details',
+  total_reports_chart: 'Search total reports'
 }
 export default en;

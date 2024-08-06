@@ -1,16 +1,14 @@
 <script>
-
 import ReportsService from '@/helpers/reports.service.js'
 import { isTokenExpired } from '@/helpers/verify-token.service.js'
 
 export default {
-  name: 'report-chart',
+  name: 'total-reports-chart',
   data() {
     return {
       chartData: null,
       chartOptions: null,
-      brand: null,
-      reports: null,
+      total:null,
       year : null
     };
   },
@@ -23,9 +21,6 @@ export default {
     this.chartOptions = this.setChartOptions();
   },
   computed: {
-    brandPlaceHolder() {
-      return this.$t('report_chart_brand_placeholder');
-    },
     yearPlaceHolder() {
       return this.$t('report_chart_year_placeholder');
     },
@@ -33,11 +28,11 @@ export default {
   methods: {
     setChartData() {
       return {
-        labels: Object.keys(this.reports),
+        labels: Object.keys(this.total),
         datasets: [
           {
-            label: 'Total Reports',
-            data: Object.values(this.reports),
+            label: 'Sales',
+            data: Object.values(this.total),
             backgroundColor: ['rgba(249, 115, 22, 0.2)', 'rgba(6, 182, 212, 0.2)', 'rgb(107, 114, 128, 0.2)', 'rgba(139, 92, 246, 0.2)'],
             borderColor: ['rgb(249, 115, 22)', 'rgb(6, 182, 212)', 'rgb(107, 114, 128)', 'rgb(139, 92, 246)'],
             borderWidth: 1
@@ -45,17 +40,17 @@ export default {
         ]
       };
     },
-    async searchReportsByBrand(){
-      this.reports = await ReportsService.countReportsByBrandAndYear(this.brand.trim(),this.year).then(
+    async searchTotalReportsByYear() {
+      await ReportsService.countTotalReportsByYear(this.year).then(
         (response) => {
           if(response.status === 200){
-            this.reports = response.data;
+            this.total = response.data;
             this.chartData = this.setChartData();
-            alert("Reports found")
+            alert("Total reports found")
           }
         }
       ).catch(() => {
-        alert("Error searching reports by brand")
+        alert("Error searching total reports by year")
       });
     },
     setChartOptions() {
@@ -93,16 +88,16 @@ export default {
         }
       };
     }
-  },
-}
+  }
+};
 </script>
 
 <template>
   <div class="chart-container ">
     <div  class="flex  flex-column lg:flex-row gap-4">
-     <router-link to="/report-chart-operation-center">
-       <pv-button severity="contrast" >{{$t('filter_operation_center')}} </pv-button>
-     </router-link>
+      <router-link to="/report-chart-operation-center">
+        <pv-button severity="contrast" >{{$t('filter_operation_center')}} </pv-button>
+      </router-link>
       <router-link to="/report-chart-type">
         <pv-button severity="contrast" > {{$t('filter_type')}} </pv-button>
       </router-link>
@@ -113,11 +108,10 @@ export default {
         <pv-button severity="contrast" > {{$t('total_reports_chart')}} </pv-button>
       </router-link>
     </div>
-   <div class="flex  flex-column lg:flex-row gap-4">
-     <pv-inputext class="text-sm" v-model="brand" size="large"  type="text" :placeholder="brandPlaceHolder"  aria-label="Search reports by brand input button"/>
-     <pv-inputext class="text-sm" v-model="year" size="large"  type="text" :placeholder="yearPlaceHolder"  aria-label="Search reports by year input button" />
-     <pv-button severity="primary" @click="searchReportsByBrand"> {{$t('search_button')}} </pv-button>
-   </div>
+    <div class="flex  flex-column lg:flex-row gap-4">
+      <pv-inputext class="text-sm" v-model="year" size="large"  type="text" :placeholder="yearPlaceHolder"  aria-label="Search reports by year input button" />
+      <pv-button severity="primary" @click="searchTotalReportsByYear"> {{$t('search_button')}} </pv-button>
+    </div>
     <div class="chart-manager">
       <pv-chart type="bar" :data="chartData" :options="chartOptions" />
     </div>

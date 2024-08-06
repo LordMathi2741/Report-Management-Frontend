@@ -22,6 +22,9 @@ class ReportsService {
   static getAllReports(){
     return BaseService.get('Reports')
   }
+  static countTotalReportsByYear(year){
+    return BaseService.get('Reports/countTotalReportsByYear/'+year)
+  }
 }
 
 export default  ReportsService
