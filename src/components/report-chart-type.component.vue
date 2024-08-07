@@ -90,8 +90,8 @@ export default {
 </script>
 
 <template>
-  <div class="chart-type-container mx-auto">
-    <div class="flex flex-column lg:flex-row gap-3 justify-content-center">
+  <div class="chart-type-container mx-auto my-8 md:my-5 lg:my-3">
+    <div class="flex flex-column lg:flex-row gap-3 justify-content-center my-8 md:my-5 lg:my-3">
       <pv-inputext class="text-sm" v-model="year" size="large"  type="text" :placeholder="yearPlaceHolder"  aria-label="Search reports by year input button" />
       <pv-inputext class="text-sm" v-model="month" size="large"  type="text" :placeholder="monthPlaceHolder"  aria-label="Search reports by month input button" />
       <pv-button @click="searchReportsByYearAndMonth" severity="primary" > {{$t('search_button')}} </pv-button>

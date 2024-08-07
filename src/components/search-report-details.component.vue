@@ -136,7 +136,7 @@ export default {
 </script>
 
 <template>
-  <div class="search-report-details-container">
+  <div class="search-report-details-container my-8">
     <h1 class="text-sm md:text-base lg:text-2xl text-center"> {{$t('search_report_details_title')}}:</h1>
     <div class="flex flex-column lg:flex-row  gap-3">
       <pv-inputext class="custom-btn-size text-sm"  v-model="cylinderNumber" :placeholder="cylinderNumberPlaceholder" size="large"/>
@@ -155,7 +155,7 @@ export default {
         <pv-column  class="border-1 bg-green-400 text-black-alpha-90 font-bold" field="operationCenter" :header="operationCenterHeader"></pv-column>
       </pv-datatable>
     </div>
-    <div class="flex flex-column lg:flex-row gap-3">
+    <div class="flex flex-column lg:flex-row gap-3 my-8">
       <pv-button class="text-sm lg:text-base" @click="exportCurrentReport" size="large" severity="contrast"> {{$t('export_excel_button')}} </pv-button>
       <pv-button class="text-sm lg:text-base" @click="exportData" size="large" severity="contrast"> {{$t('export_pdf')}} </pv-button>
     </div>

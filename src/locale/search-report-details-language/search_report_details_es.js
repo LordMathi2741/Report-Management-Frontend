@@ -4,7 +4,7 @@ const search_report_details_es = {
   vehicle_identifier_placeholder:'Ingrese el número de placa',
   cylinder_number_placeholder:'Ingrese el número de cilindro',
   certificate_number_placeholder:'Ingrese el número de certificado',
-  emit_date_placeholder:'Ingrese la fecha de emisión',
+  emit_date_placeholder:'Fecha de emisión (aaaa-mm-dd)',
   certificate_number_header:'Número de Certificado',
   vehicle_identifier_header:'Número de Placa',
   cylinder_number_header:'Número de Cilindro',

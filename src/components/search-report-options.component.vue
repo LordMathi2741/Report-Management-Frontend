@@ -78,27 +78,30 @@ export default {
 </script>
 
 <template>
-   <div class=" p-4 flex   flex-row  gap-8" aria-label="Search report options content">
-    <div   class="w-full flex  flex-column  pt-8   gap-7" aria-label="Search report options parameters">
-        <div v-if="notDataFound" class="flex  flex-column lg:flex-row  gap-2">
-          <div class="flex font-bold text-white flex-column gap-4">
+   <div class="mt-8 flex   flex-column  gap-8" aria-label="Search report options content">
+    <div  class="w-full flex  flex-column  pt-8  gap-7" aria-label="Search report options parameters">
+        <div class="w-10rem md:w-15rem lg:w-20rem xl:w-30rem flex flex-column lg:mx-auto">
+          <h2 class=" text-white text-md md:text-base lg:text-xl xl:text-2xl"> {{$t('search_context')}} </h2>
+          <h2 class=" text-white text-md md:text-base lg:text-xl xl:text-2xl"> {{$t('search_organization_context')}}</h2>
+        </div>
+        <div v-if="notDataFound" class="flex flex-column lg:flex-row  gap-2">
+          <div class="flex font-bold lg:mx-auto text-white flex-column gap-4">
             <p class="text-xs md:text-xl">{{$t('certified_number')}}:</p>
             <p class="text-xs md:text-xl">{{$t('cylinder_number')}}:</p>
             <p class="text-xs md:text-xl">{{$t('vehicle_identifier_number')}}:</p>
             <p class="text-xs md:text-xl">{{$t('emit_date')}}:</p>
           </div>
-          <div class=" flex flex-column w-10rem sm:w-15rem gap-2">
-            <pv-inputext class="text-xs md:text-base" v-model="certifiedNumber" :placeholder="certifiedNumberPlaceholder" aria-label="Enter certified number"></pv-inputext>
-            <pv-inputext class="text-xs md:text-base" v-model="cylinderNumber" :placeholder="cylinderNumberPlaceholder" aria-label="Enter cylinder number"></pv-inputext>
-            <pv-inputext class="text-xs md:text-base" v-model="vehicleIdentifier" :placeholder="vehicleIdentifierPlaceholder" aria-label="Enter vehicle identifier"></pv-inputext>
-            <pv-inputext class="text-xs md:text-base" v-model="emitDate" :placeholder="emitDatePlaceholder" aria-label="Enter emit date"></pv-inputext>
+          <div class="flex flex-column lg:mx-auto w-10rem sm:w-15rem gap-2">
+            <pv-inputext class="text-xs xl:text-base" v-model="certifiedNumber" :placeholder="certifiedNumberPlaceholder" aria-label="Enter certified number"></pv-inputext>
+            <pv-inputext class="text-xs xl:text-base" v-model="cylinderNumber" :placeholder="cylinderNumberPlaceholder" aria-label="Enter cylinder number"></pv-inputext>
+            <pv-inputext class="text-xs xl:text-base" v-model="vehicleIdentifier" :placeholder="vehicleIdentifierPlaceholder" aria-label="Enter vehicle identifier"></pv-inputext>
+            <pv-inputext class="text-xs xl:text-base" v-model="emitDate" :placeholder="emitDatePlaceholder" aria-label="Enter emit date"></pv-inputext>
             <div class="flex gap-3 flex ">
               <pv-button @click="searchReport" aria-label="Search report pdf button">{{$t('search_button')}}</pv-button>
               <pv-button severity="warn" @click="clearParameters" aria-label="Clear report parameters button">{{$t('clear_button')}}</pv-button>
             </div>
           </div>
         </div>
-
       <div v-else class="flex flex-column gap-3" aria-label="Report content section">
         <div class="flex gap-3 flex  ">
           <pv-button @click="searchReport" aria-label="Search report pdf button">{{$t('search_button')}}</pv-button>
@@ -108,9 +111,11 @@ export default {
          {{$t('warning')}} <code>iframe</code>.
         </iframe>
       </div>
-
     </div>
-
+     <div class="my-8 md:my-0 w-10rem md:w-15rem lg:w-20rem xl:w-30rem text-white p-2 text-xs border-round-lg text-justify sm:text-sm  lg:text-base sm:w-15rem md:w-25rem flex flex-column gap-2  lg:w-30rem lg:mx-auto" aria-label="Sign up options title">
+       <p>
+         {{$t('sign_up_information')}}</p>
+     </div>
   </div>
 </template>
 

@@ -6,6 +6,8 @@ const search_report_es = {
     cylinder_number:'Número de Cilindro',
     vehicle_identifier_number:'Número de Identificación del Vehículo',
     emit_date:'Fecha de Emisión',
+    search_context: 'Sistema de validacion de certificados emitidos',
+    search_organization_context : 'por el Organismo de Inspección',
     warning : 'Tu navegador no soporta este formato'
 }
 

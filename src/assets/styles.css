@@ -120,7 +120,7 @@
 
 
 .logo-size{
-    width: 300px;
+    width: 150px;
     height: 50px;
 }
 
@@ -150,8 +150,8 @@
     width: 600px;
 }
 .schedule-img{
-    width: 500px;
-    height: 70px;
+    width: 350px;
+    height: 60px;
 }
 
 
@@ -287,6 +287,9 @@ li:nth-child(1):hover{
     }
     .search-report-details-table-container{
         width: 800px;
+    }
+    .footer-manager{
+        position: relative;
     }
 
 }

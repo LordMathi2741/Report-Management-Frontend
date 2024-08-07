@@ -6,6 +6,8 @@ const search_report_en = {
   cylinder_number:'Cylinder Number',
   vehicle_identifier_number:'Vehicle Identifier Number',
   emit_date:'Emit Date',
-  warning: 'Your navigator does not support this format'
+  warning: 'Your navigator does not support this format',
+  search_context: 'Validation system of issued certificates',
+  search_organization_context: 'by the Inspection Body'
 }
 export default search_report_en;

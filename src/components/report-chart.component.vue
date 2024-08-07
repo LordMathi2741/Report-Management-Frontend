@@ -114,7 +114,7 @@ export default {
 </script>
 
 <template>
-  <div class="chart-container ">
+  <div class="chart-container my-8 ">
     <div  class="flex  flex-column lg:flex-row gap-4">
      <router-link to="/report-chart-operation-center">
        <pv-button severity="contrast" >{{$t('filter_operation_center')}} </pv-button>
