@@ -8,6 +8,16 @@ export default {
        currentUserName: JSON.parse(sessionStorage.getItem('user'))?.username
     }
   },
+  methods: {
+    signOut() {
+      localStorage.removeItem('token');
+      sessionStorage.removeItem('user');
+      alert("You have been signed out successfully");
+      this.$router.push('/sign-in').then(() => {
+        window.location.reload();
+      });
+    }
+  },
   mounted() {
     const token = JSON.parse(localStorage.getItem('token'));
     if (token && isTokenExpired(token)) {
@@ -26,6 +36,7 @@ export default {
           <i class="pi pi-user text-6xl" aria-label="User profile icon"></i>
           <p class="text-2xl" aria-label="User profile username">{{$t('current_username')}}: {{currentUserName}}</p>
          </div>
+       <pv-button @click="signOut" aria-label="Sign out button" class="w-1/2 mx-auto" severity="danger">{{$t('sign_out')}}</pv-button>
      </div>
      <div class="profile-section" aria-label="Profile section container"  v-else>
        <div  aria-label="User profile content" class="bg-white flex flex-column gap-3 p-8 shadow-7 border-round-2xl">

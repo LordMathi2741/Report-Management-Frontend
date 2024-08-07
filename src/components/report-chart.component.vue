@@ -68,7 +68,6 @@ export default {
                 return acc;
               }, {});
             this.chartData = this.setChartData();
-            alert("Reports found");
           }
         }
       ).catch(() => {

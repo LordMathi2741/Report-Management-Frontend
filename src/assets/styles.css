@@ -204,6 +204,7 @@ small {
     display: grid;
     place-items: center;
     padding: 100px;
+    gap:10px;
 }
 
 
