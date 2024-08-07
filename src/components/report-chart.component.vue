@@ -45,17 +45,22 @@ export default {
         ]
       };
     },
-    async searchReportsByBrand(){
-      this.reports = await ReportsService.countReportsByBrandAndYear(this.brand.trim(),this.year).then(
+    async searchReportsByBrand() {
+      await ReportsService.countReportsByBrandAndYear(this.brand.trim(), this.year).then(
         (response) => {
-          if(response.status === 200){
-            this.reports = response.data;
+          if (response.status === 200) {
+            this.reports = Object.keys(response.data)
+              .sort((a, b) => new Date(`01 ${a} 2000`) - new Date(`01 ${b} 2000`))
+              .reduce((acc, key) => {
+                acc[key] = response.data[key];
+                return acc;
+              }, {});
             this.chartData = this.setChartData();
-            alert("Reports found")
+            alert("Reports found");
           }
         }
       ).catch(() => {
-        alert("Error searching reports by brand")
+        alert("Error searching reports by brand");
       });
     },
     setChartOptions() {
