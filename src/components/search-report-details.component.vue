@@ -3,7 +3,8 @@
 import * as XLSX from 'xlsx';
 import ReportsService from '@/helpers/reports.service.js'
 import { isTokenExpired } from '@/helpers/verify-token.service.js'
-import ReportImgService from '@/helpers/report-img.service.js'
+import jsPDF from 'jspdf'
+import 'jspdf-autotable'
 export default {
   name: 'search-report-details',
   data(){
@@ -11,7 +12,6 @@ export default {
       reports: [],
       cylinderNumber: null,
       vehicleIdentifier: null,
-      reportsImgService: new ReportImgService(),
       currentReportPdf: null,
     }
   },
@@ -21,31 +21,15 @@ export default {
       await ReportsService.getReportByCylinderNumber(this.cylinderNumber).then((response) => {
         alert("Report found");
         this.reports.push(response.data)
-        this.getReportImg(" " + this.reports[0].certificationNumber).then((response) => {
-          this.currentReportPdf = response.data;
-        });
       }).catch(() => {
         alert("Report with this cylinder number not found ");
       })
-    },
-    async getReportImg(filename){
-      await this.reportsImgService.getReportImgByFileName(filename)
-        .then((response) => {
-          if (response.status === 200) {
-            this.reportImg = response.data;
-          }
-        }).catch(() => {
-          this.notDataFound = true;
-        })
     },
     async searchReportByVehicleIdentifier() {
       this.clearCurrentReports();
       await ReportsService.getReportByVehicleIdentifier(this.vehicleIdentifier).then((response) => {
         alert("Report found");
         this.reports.push(response.data);
-        this.getReportImg(" " + this.reports[0].certificationNumber).then((response) => {
-          this.currentReportPdf = response.data;
-        });
       }).catch(() => {
         alert("Report with this vehicle identifier not found ");
       })
@@ -73,46 +57,73 @@ export default {
       XLSX.writeFile(wb, "report.xlsx");
 
     },
-    printCurrentReport(){
-      if(this.reports.length === 0){
-        alert("No report to print");
+    exportData() {
+      if (this.reports.length === 0) {
+        alert("No report to export");
         return;
       }
-      print(this.currentReportPdf);
+      const report = this.reports[0];
+      const doc = new jsPDF();
 
+      doc.setFontSize(18);
+      doc.text('Detalles del reporte', 20, 20);
+
+      const headers = [
+        ['Detalle', 'Información']
+      ];
+      const data = [
+        [this.certificateNumberHeader, report.certificationNumber],
+        [this.cylinderNumberHeader, report.cylinderNumber],
+        [this.vehicleIdentifierHeader, report.vehicleIdentifier],
+        [this.brandHeader, report.brand],
+        [this.madeDateHeader, report.madeDate],
+        [this.emitDateHeader, report.emitDate],
+        [this.typeHeader, report.type],
+        [this.operationCenterHeader, report.operationCenter]
+      ];
+
+      doc.autoTable({
+        startY: 30,
+        head: headers,
+        body: data,
+        styles: { font: 'helvetica', fontSize: 12 },
+        headStyles: { fillColor: [22, 160, 133] }
+      });
+
+      doc.save('detalle-reporte.pdf');
     }
   },
   computed: {
-     cylinderNumberPlaceholder() {
-       return this.$t('cylinder_number_placeholder');
-     },
-      vehicleIdentifierPlaceholder() {
-        return this.$t('vehicle_identifier_placeholder');
-      },
-      certificateNumberHeader() {
-        return this.$t('certificate_number_header');
-      },
-      cylinderNumberHeader() {
-        return this.$t('cylinder_number_header');
-      },
-      brandHeader() {
-        return this.$t('brand_header');
-      },
-      madeDateHeader() {
-        return this.$t('made_date_header');
-      },
-      emitDateHeader() {
-        return this.$t('emit_date_header');
-      },
-      typeHeader() {
-        return this.$t('type_header');
-      },
-      operationCenterHeader() {
-        return this.$t('operation_center_header');
-      },
-     vehicleIdentifierHeader() {
-       return this.$t('vehicle_identifier_header');
-     },
+    cylinderNumberPlaceholder() {
+      return this.$t('cylinder_number_placeholder');
+    },
+    vehicleIdentifierPlaceholder() {
+      return this.$t('vehicle_identifier_placeholder');
+    },
+    certificateNumberHeader() {
+      return this.$t('certificate_number_header');
+    },
+    cylinderNumberHeader() {
+      return this.$t('cylinder_number_header');
+    },
+    brandHeader() {
+      return this.$t('brand_header');
+    },
+    madeDateHeader() {
+      return this.$t('made_date_header');
+    },
+    emitDateHeader() {
+      return this.$t('emit_date_header');
+    },
+    typeHeader() {
+      return this.$t('type_header');
+    },
+    operationCenterHeader() {
+      return this.$t('operation_center_header');
+    },
+    vehicleIdentifierHeader() {
+      return this.$t('vehicle_identifier_header');
+    },
   },
   mounted() {
     const token = JSON.parse(localStorage.getItem('token'));
@@ -133,20 +144,20 @@ export default {
       <pv-button @click="searchReport" size="large" severity="primary"> {{$t('search_report_details_button')}}</pv-button>
     </div>
     <div class="search-report-details-table-container ">
-       <pv-datatable class=" border-3 border-black-alpha-20 "  resizable-columns column-resize-mode="expand" :value="reports" table-style="min-width: 50rem">
-         <pv-column class=" border-1  bg-green-400 text-black-alpha-90 font-bold" field="certificationNumber" :header="certificateNumberHeader"></pv-column>
-         <pv-column  class="border-1   bg-green-400 text-black-alpha-90 font-bold" field="cylinderNumber" :header="cylinderNumberHeader"></pv-column>
-          <pv-column  class="border-1   bg-green-400 text-black-alpha-90 font-bold" field="vehicleIdentifier" :header="vehicleIdentifierHeader"></pv-column>
-         <pv-column  class="border-1   bg-green-400 text-black-alpha-90 font-bold" field="brand" :header="brandHeader"></pv-column>
-         <pv-column  class="border-1  bg-green-400 text-black-alpha-90 font-bold" field="madeDate" :header="madeDateHeader"></pv-column>
-         <pv-column  class="border-1  bg-green-400 text-black-alpha-90 font-bold" field="emitDate" :header="emitDateHeader"></pv-column>
-         <pv-column  class="border-1  bg-green-400 text-black-alpha-90 font-bold" field="type" :header="typeHeader"></pv-column>
-         <pv-column  class="border-1 bg-green-400 text-black-alpha-90 font-bold" field="operationCenter" :header="operationCenterHeader"></pv-column>
-       </pv-datatable>
+      <pv-datatable class=" border-3 border-black-alpha-20 "  resizable-columns column-resize-mode="expand" :value="reports" table-style="min-width: 50rem">
+        <pv-column class=" border-1  bg-green-400 text-black-alpha-90 font-bold" field="certificationNumber" :header="certificateNumberHeader"></pv-column>
+        <pv-column  class="border-1   bg-green-400 text-black-alpha-90 font-bold" field="cylinderNumber" :header="cylinderNumberHeader"></pv-column>
+        <pv-column  class="border-1   bg-green-400 text-black-alpha-90 font-bold" field="vehicleIdentifier" :header="vehicleIdentifierHeader"></pv-column>
+        <pv-column  class="border-1   bg-green-400 text-black-alpha-90 font-bold" field="brand" :header="brandHeader"></pv-column>
+        <pv-column  class="border-1  bg-green-400 text-black-alpha-90 font-bold" field="madeDate" :header="madeDateHeader"></pv-column>
+        <pv-column  class="border-1  bg-green-400 text-black-alpha-90 font-bold" field="emitDate" :header="emitDateHeader"></pv-column>
+        <pv-column  class="border-1  bg-green-400 text-black-alpha-90 font-bold" field="type" :header="typeHeader"></pv-column>
+        <pv-column  class="border-1 bg-green-400 text-black-alpha-90 font-bold" field="operationCenter" :header="operationCenterHeader"></pv-column>
+      </pv-datatable>
     </div>
     <div class="flex flex-column lg:flex-row gap-3">
       <pv-button class="text-sm lg:text-base" @click="exportCurrentReport" size="large" severity="contrast"> {{$t('export_excel_button')}} </pv-button>
-      <pv-button class="text-sm lg:text-base" @click="printCurrentReport" size="large" severity="contrast"> {{$t('print_report_button')}} </pv-button>
+      <pv-button class="text-sm lg:text-base" @click="exportData" size="large" severity="contrast"> {{$t('export_pdf')}} </pv-button>
     </div>
   </div>
 </template>

@@ -6,6 +6,7 @@ const es = {
   filter_type : 'Filtrar por tipo',
   search_details: 'Buscar detalles',
   total_reports_chart: 'Buscar total de reportes',
-  total_reports_title: 'Total de reportes por mes',
+  total_reports_title: 'Total de cilindros procesados por mes',
+  export_pdf: 'Exportar PDF',
 }
 export default es;

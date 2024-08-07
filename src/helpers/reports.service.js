@@ -14,10 +14,10 @@ class ReportsService {
       return BaseService.get('/Reports/countReportsTypeByYearAndMonth/'+year+'/'+month)
   }
   static getReportByCylinderNumber(cylinderNumber){
-    return BaseService.get('Reports/cylinder-number/'+cylinderNumber)
+    return BaseService.get('Reports/get-by-cylinder-number/'+cylinderNumber)
   }
   static getReportByVehicleIdentifier(vehicleIdentifier){
-    return BaseService.get('Reports/vehicle-identifier/'+vehicleIdentifier)
+    return BaseService.get('Reports/get-by-vehicle-identifier/'+vehicleIdentifier)
   }
   static getAllReports(){
     return BaseService.get('Reports')

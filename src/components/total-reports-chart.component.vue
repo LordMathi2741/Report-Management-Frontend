@@ -1,6 +1,9 @@
 <script>
 import ReportsService from '@/helpers/reports.service.js'
 import { isTokenExpired } from '@/helpers/verify-token.service.js'
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
+
 
 export default {
   name: 'total-reports-chart',
@@ -39,6 +42,21 @@ export default {
           }
         ]
       };
+    },
+    exportData() {
+      const doc = new jsPDF();
+      doc.autoTable({
+        head: [['Year', 'Total Reports']],
+        body: Object.keys(this.total).map(key => [key, this.total[key]]),
+        startY: 20,
+        theme: 'grid',
+        styles: {
+          cellPadding: 1,
+          fontSize: 12,
+          cellWidth: 'wrap'
+        }
+      });
+      doc.save('total-reports.pdf');
     },
     async searchTotalReportsByYear() {
       await ReportsService.countTotalReportsByYear(this.year).then(
@@ -118,6 +136,9 @@ export default {
       <pv-inputext class="text-sm" v-model="year" size="large"  type="text" :placeholder="yearPlaceHolder"  aria-label="Search reports by year input button" />
       <pv-button severity="primary" @click="searchTotalReportsByYear"> {{$t('search_button')}} </pv-button>
     </div>
+    <div v-if="total" class="flex flex-column gap-4">
+      <pv-button class="text-sm lg:text-base" @click="exportData" size="large" severity="contrast"> {{$t('export_pdf')}} </pv-button>
+      </div>
     <div class="chart-manager">
       <pv-chart type="bar" :data="chartData" :options="chartOptions" />
     </div>
