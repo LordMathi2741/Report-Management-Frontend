@@ -4,7 +4,7 @@ const en = {
   sign_up : 'Registrarse',
   email: 'Porfavor ingrese su correo electronico',
   password:'Porfavor ingrese su contraseña',
-  warning: 'Aun no esta registrado?',
+  warning_sign_in: 'Aun no esta registrado?',
 
 }
 export default en;

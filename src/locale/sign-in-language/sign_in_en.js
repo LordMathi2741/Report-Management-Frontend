@@ -4,6 +4,6 @@ const en = {
    sign_up : 'Sign up',
    email: 'Please enter your email',
    password: 'Please enter your password',
-   warning: 'Do you dont have an account yet?'
+   warning_sign_in: 'Do you dont have an account yet?'
 }
 export default en;

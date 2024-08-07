@@ -3,6 +3,7 @@
 
 import ReportsService from '@/helpers/reports.service.js'
 import { isTokenExpired } from '@/helpers/verify-token.service.js'
+import * as XLSX from 'xlsx'
 
 export default {
   name: 'report-chart-operation-center',
@@ -39,6 +40,22 @@ export default {
           }
         ]
       }
+    },
+    exportCurrentReport() {
+      if(this.reports.length === 0){
+        alert("No report to export");
+        return;
+      }
+      const ws_name = "Report Information";
+      const wb = XLSX.utils.book_new();
+      const ws_data = [
+        ["Operation Center", "Total Reports"],
+        ...Object.entries(this.reports).map(([key, value]) => [key, value])
+      ];
+      const ws = XLSX.utils.aoa_to_sheet(ws_data);
+      XLSX.utils.book_append_sheet(wb, ws, ws_name);
+      XLSX.writeFile(wb, "total-cilindros-taller.xlsx");
+
     },
     searchReportsByYearAndMonth(){
       ReportsService.countReportsByOperationCenterAndYear(this.year,this.month).then((response) => {
@@ -104,6 +121,9 @@ export default {
       <pv-button @click="searchReportsByYearAndMonth" severity="primary" > {{$t('search_button')}} </pv-button>
     </div>
     <pv-chart type="bar" :data="chartData" :options="chartOptions" class=" h-30rem" />
+    <div class="flex justify-content-center" v-if="this.reports">
+      <pv-button class="text-sm lg:text-base" @click="exportCurrentReport" size="large" severity="contrast"> {{$t('export_excel_button')}} </pv-button>
+    </div>
   </div>
 </template>
 
