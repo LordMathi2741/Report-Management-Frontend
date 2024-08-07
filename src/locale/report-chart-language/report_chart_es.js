@@ -5,6 +5,7 @@ const es = {
   filter_operation_center:'Filtrar por taller',
   filter_type : 'Filtrar por tipo',
   search_details: 'Buscar detalles',
-  total_reports_chart: 'Buscar total de reportes'
+  total_reports_chart: 'Buscar total de reportes',
+  total_reports_title: 'Total de reportes por mes',
 }
 export default es;

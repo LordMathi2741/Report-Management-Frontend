@@ -31,7 +31,7 @@ export default {
         labels: Object.keys(this.total),
         datasets: [
           {
-            label: 'Sales',
+            label: 'Total Reports',
             data: Object.values(this.total),
             backgroundColor: ['rgba(249, 115, 22, 0.2)', 'rgba(6, 182, 212, 0.2)', 'rgb(107, 114, 128, 0.2)', 'rgba(139, 92, 246, 0.2)'],
             borderColor: ['rgb(249, 115, 22)', 'rgb(6, 182, 212)', 'rgb(107, 114, 128)', 'rgb(139, 92, 246)'],
@@ -43,14 +43,19 @@ export default {
     async searchTotalReportsByYear() {
       await ReportsService.countTotalReportsByYear(this.year).then(
         (response) => {
-          if(response.status === 200){
-            this.total = response.data;
+          if (response.status === 200) {
+            this.total = Object.keys(response.data)
+              .sort((a, b) => new Date(`01 ${a} 2000`) - new Date(`01 ${b} 2000`))
+              .reduce((acc, key) => {
+                acc[key] = response.data[key];
+                return acc;
+              }, {});
             this.chartData = this.setChartData();
-            alert("Total reports found")
+            alert("Total reports found");
           }
         }
       ).catch(() => {
-        alert("Error searching total reports by year")
+        alert("Error searching total reports by year");
       });
     },
     setChartOptions() {
@@ -93,7 +98,7 @@ export default {
 </script>
 
 <template>
-  <div class="chart-container ">
+  <div class="chart-container gap-10 ">
     <div  class="flex  flex-column lg:flex-row gap-4">
       <router-link to="/report-chart-operation-center">
         <pv-button severity="contrast" >{{$t('filter_operation_center')}} </pv-button>
@@ -108,6 +113,7 @@ export default {
         <pv-button severity="contrast" > {{$t('total_reports_chart')}} </pv-button>
       </router-link>
     </div>
+    <h2 class="text-xs md:text-sm lg:text-base xl:text-xl">{{$t('total_reports_title')}}</h2>
     <div class="flex  flex-column lg:flex-row gap-4">
       <pv-inputext class="text-sm" v-model="year" size="large"  type="text" :placeholder="yearPlaceHolder"  aria-label="Search reports by year input button" />
       <pv-button severity="primary" @click="searchTotalReportsByYear"> {{$t('search_button')}} </pv-button>
