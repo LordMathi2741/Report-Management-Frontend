@@ -3,6 +3,7 @@ import ReportsService from '@/helpers/reports.service.js'
 import { isTokenExpired } from '@/helpers/verify-token.service.js'
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import * as XLSX from 'xlsx'
 
 
 export default {
@@ -76,6 +77,17 @@ export default {
         alert("Error searching total reports by year");
       });
     },
+    exportCurrentReport(){
+      const ws_name = "Report Information";
+      const wb = XLSX.utils.book_new();
+      const ws_data = [
+        ["Operation Center", "Total Reports"],
+        ...Object.entries(this.total).map(([key, value]) => [key, value])
+      ];
+      const ws = XLSX.utils.aoa_to_sheet(ws_data);
+      XLSX.utils.book_append_sheet(wb, ws, ws_name);
+      XLSX.writeFile(wb, "total-cilindros-año.xlsx");
+    },
     setChartOptions() {
       const documentStyle = getComputedStyle(document.documentElement);
       const textColor = documentStyle.getPropertyValue('--p-text-color');
@@ -136,8 +148,9 @@ export default {
       <pv-inputext class="text-sm" v-model="year" size="large"  type="text" :placeholder="yearPlaceHolder"  aria-label="Search reports by year input button" />
       <pv-button severity="primary" @click="searchTotalReportsByYear"> {{$t('search_button')}} </pv-button>
     </div>
-    <div v-if="total" class="flex flex-column gap-4">
+    <div v-if="total" class="flex flex-column lg:flex-row gap-4">
       <pv-button class="text-sm lg:text-base" @click="exportData" size="large" severity="contrast"> {{$t('export_pdf')}} </pv-button>
+      <pv-button class="text-sm lg:text-base" @click="exportCurrentReport" size="large" severity="contrast"> {{$t('export_excel_button')}} </pv-button>
       </div>
     <div class="chart-manager">
       <pv-chart type="bar" :data="chartData" :options="chartOptions" />

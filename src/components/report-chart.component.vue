@@ -2,6 +2,7 @@
 
 import ReportsService from '@/helpers/reports.service.js'
 import { isTokenExpired } from '@/helpers/verify-token.service.js'
+import * as XLSX from 'xlsx'
 
 export default {
   name: 'report-chart',
@@ -44,6 +45,17 @@ export default {
           }
         ]
       };
+    },
+    exportCurrentReport(){
+      const ws_name = "Report Information";
+      const wb = XLSX.utils.book_new();
+      const ws_data = [
+        ["Operation Center", "Total Reports"],
+        ...Object.entries(this.reports).map(([key, value]) => [key, value])
+      ];
+      const ws = XLSX.utils.aoa_to_sheet(ws_data);
+      XLSX.utils.book_append_sheet(wb, ws, ws_name);
+      XLSX.writeFile(wb, "total-cilindros-marca.xlsx");
     },
     async searchReportsByBrand() {
       await ReportsService.countReportsByBrandAndYear(this.brand.trim(), this.year).then(
@@ -123,6 +135,10 @@ export default {
      <pv-inputext class="text-sm" v-model="year" size="large"  type="text" :placeholder="yearPlaceHolder"  aria-label="Search reports by year input button" />
      <pv-button severity="primary" @click="searchReportsByBrand"> {{$t('search_button')}} </pv-button>
    </div>
+
+    <div class="flex justify-content-center" v-if="this.reports">
+      <pv-button class="text-sm lg:text-base" @click="exportCurrentReport" size="large" severity="contrast"> {{$t('export_excel_button')}} </pv-button>
+    </div>
     <div class="chart-manager">
       <pv-chart type="bar" :data="chartData" :options="chartOptions" />
     </div>

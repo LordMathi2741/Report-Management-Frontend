@@ -42,10 +42,6 @@ export default {
       }
     },
     exportCurrentReport() {
-      if(this.reports.length === 0){
-        alert("No report to export");
-        return;
-      }
       const ws_name = "Report Information";
       const wb = XLSX.utils.book_new();
       const ws_data = [
@@ -120,10 +116,10 @@ export default {
       <pv-inputext class="text-sm" v-model="month" size="large"  type="text" :placeholder="monthPlaceHolder"  aria-label="Search reports by month input button" />
       <pv-button @click="searchReportsByYearAndMonth" severity="primary" > {{$t('search_button')}} </pv-button>
     </div>
-    <pv-chart type="bar" :data="chartData" :options="chartOptions" class=" h-30rem" />
     <div class="flex justify-content-center" v-if="this.reports">
-      <pv-button class="text-sm lg:text-base" @click="exportCurrentReport" size="large" severity="contrast"> {{$t('export_excel_button')}} </pv-button>
-    </div>
+    <pv-button class="text-sm lg:text-base" @click="exportCurrentReport" size="large" severity="contrast"> {{$t('export_excel_button')}} </pv-button>
+  </div>
+    <pv-chart type="bar" :data="chartData" :options="chartOptions" class=" h-30rem" />
   </div>
 </template>
 
