@@ -1,8 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter } from 'vue-router'
+import { createWebHashHistory } from 'vue-router'
 
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
+const routes = [
     {path:'/', component: () => import('../pages/sign-in-page.page.vue')},
     { path: '/sign-in', component: () => import('../pages/sign-in-page.page.vue') },
     {path:'/search', component: () => import('../pages/search-report-page.page.vue')},
@@ -14,6 +13,11 @@ const router = createRouter({
     {path: '/report-details', component : ()=> import('../pages/search-report-details-page.page.vue')},
     {path: '/total-reports-chart', component : ()=> import('../pages/total-reports-chart-page.page.vue')},
   ]
+
+
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes,
 })
 
 export default router
