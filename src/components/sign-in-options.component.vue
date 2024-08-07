@@ -1,30 +1,46 @@
 <script>
-
 import UserService from '@/helpers/user.service.js'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'sign-in-options',
-  data(){
+  data() {
     return {
       email: '',
       password: '',
       userService: new UserService(),
     }
   },
+  computed: {
+    ...mapState({
+      user: state => state.user,
+      token: state => state.token
+    }),
+    email_placeholder() {
+      return this.$t('email')
+    },
+    password_placeholder() {
+      return this.$t('password')
+    }
+  },
   methods: {
+    ...mapActions(['signInUser', 'fetchUserNameByEmail']),
     async signIn() {
       try {
         const response = await this.userService.signInUser(this.email, this.password);
         localStorage.setItem('token', JSON.stringify(response.data));
         alert("Sign in success, your token will expire in 1 hour");
         await this.fetchAndStoreUserInfo();
+        this.$router.push('/search').then(() => {
+          window.location.reload();
+        });
       } catch (error) {
         alert("Email or password wrong");
       }
     },
     async fetchAndStoreUserInfo() {
       try {
-        const response = await this.userService.getUserNameByEmail(this.email);
+        const response = await this.fetchUserNameByEmail(this.email);
         if (response.status === 200) {
           sessionStorage.setItem('user', JSON.stringify(response.data));
         }
@@ -32,15 +48,7 @@ export default {
         alert("Error");
       }
     }
-  },
-    computed: {
-      email_placeholder() {
-        return this.$t('email')
-      },
-      password_placeholder() {
-        return this.$t('password')
-      }
-    },
+  }
 }
 </script>
 
@@ -63,7 +71,6 @@ export default {
       </div>
     </div>
   </div>
-
 </template>
 
 <style scoped>

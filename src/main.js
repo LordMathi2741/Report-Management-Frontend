@@ -2,6 +2,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import PrimeVue from 'primevue/config'
+import store from './store/store.js'
 import "primeflex/themes/primeone-light.css";
 import Aura from '@primevue/themes/aura';
 import i18n from './locale/i18n.js';
@@ -20,6 +21,7 @@ import Chart from 'primevue/chart';
 const app = createApp(App)
 app.use(router)
 app.use(i18n)
+app.use(store)
 app.use(PrimeVue,{
   theme: {
     preset: Aura

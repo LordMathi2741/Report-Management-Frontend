@@ -14,6 +14,7 @@ class UserService{
   static  getCurrentRole(username){
       return BaseService.get(`/Users/getUserRoleByUsername/${username}`);
    }
+
 }
 
 export default UserService;
