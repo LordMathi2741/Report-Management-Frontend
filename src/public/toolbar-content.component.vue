@@ -56,9 +56,9 @@ export default {
    <div class="toolbar-manager flex justify-content-between bg-white p-5" aria-label="Toolbar content">
        <div class="text-white flex flex-column gap-2" aria-label="Company logo">
          <img  src="https://hiperfast.pe/images/logo-hiperfast.png" class="logo-size" alt="Brand logo"/>
-         <img src="https://hiperfast.pe/images/encabezado_pagina_555.jpg" class="schedule-img lg:hidden"  alt="Schedule"/>
+         <img src="../assets/schedule-banner.jpeg" class="schedule-img lg:hidden"  alt="Schedule"/>
        </div>
-       <img src="https://hiperfast.pe/images/encabezado_pagina_555.jpg" class="hidden lg:block schedule-img"  alt="Schedule"/>
+       <img src="../assets/schedule-banner.jpeg" class="hidden lg:block schedule-img"  alt="Schedule"/>
         <div class="hidden xl:block ">
           <ul class="flex flex-column lg:flex-row gap-3 sm:text-base md:text-lg">
             <router-link class="router-style pl-1 pr-1 " to="/sign-in" aria-label="Go to sign in section">

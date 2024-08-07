@@ -1,5 +1,6 @@
 const es = {
-  title_sign_up: 'Por favor, ingrese sus datos de cuenta aquí:',
+  title_sign_up: 'FORMULARIO DE REGISTRO',
+  sign_up_information: 'Se pone en conocimiento a todos los usuarios que toda información solicitada en este web solo será proporcionada únicamente para verificar la autenticidad de los documentos emitidos por HIPER FAST S.A.C de acuerdo al comunicado de INACAL mediante OFICIO MULTIPLE N° 020-2024-INACAL/DA, o podrá ser solicitada para fines en donde se requiera por ley.',
   sign_in : 'Iniciar sesión',
   ruc: 'Por favor, ingrese su ruc',
   username: 'Por favor, ingrese su nombre de usuario',
