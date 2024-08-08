@@ -17,6 +17,11 @@
     height: 35px;
 }
 
+.search-info-container h2:nth-child(1){
+    text-align: center;
+    text-transform:  uppercase;
+}
+
 
 .search-report-details-container{
     padding-top: 200px;
@@ -35,7 +40,7 @@
             to top right,
             rgba(0, 0, 0, 0.5),
             rgba(0, 0, 0, 0.5)
-    ), url('../assets/backgorundSignin.png');
+    ), url('../assets/background-sign-in.png');
     background-size: cover;
     background-position: center;
 
@@ -49,10 +54,9 @@
             to top right,
             rgba(0, 0, 0, 0.5),
             rgba(0, 0, 0, 0.5)
-    ), url('../assets/backgorundSignup.png');
+    ), url('../assets/background-sign-up.png');
     background-size: cover;
     background-position: center;
-
     height: 100vh;
     width: 100vw;
     filter: contrast(80%);
@@ -81,7 +85,7 @@
             to top right,
             rgba(0, 0, 0, 0.5),
             rgba(0, 0, 0, 0.5)
-    ), url('../assets/backgroundMyProfile.png');
+    ), url('../assets/background-my-profile.png');
     background-size: cover;
     background-position: center;
 
@@ -106,7 +110,7 @@
             to top right,
             rgba(0, 0, 0, 0.5),
             rgba(0, 0, 0, 0.5)
-    ), url('../assets/backgroundSearchReport.png');
+    ), url('../assets/background-search-report.png');
     background-size: cover;
     background-position: center;
 
@@ -220,6 +224,14 @@ li:nth-child(1):hover{
     .pdf-screen-manager{
      height: 800px;
     }
+
+    .search-info-container{
+        width: 50%;
+    }
+
+    .search-info-container h2:nth-child(1){
+        text-align: justify;
+    }
 }
 @media(width<=950px){
     .pdf-screen-manager{
@@ -235,10 +247,17 @@ li:nth-child(1):hover{
     .pdf-screen-manager{
         height: 400px;
     }
+    .search-info-container{
+        width: 30%;
+    }
+
 }
 @media(width<=432px){
     .pdf-screen-manager{
         height: 300px;
+    }
+    .search-info-container{
+        width: 20%;
     }
 }
 
