@@ -90,7 +90,7 @@ export default {
           <p class="text-xs md:text-xl">{{$t('vehicle_identifier_number')}}:</p>
           <p class="text-xs md:text-xl">{{$t('emit_date')}}:</p>
         </div>
-        <div class="flex flex-column lg:mx-auto w-12rem sm:w-15rem gap-2">
+        <div class="flex flex-column lg:mx-auto w-15rem sm:w-20rem gap-2">
           <pv-inputext class="text-xs xl:text-base" v-model="certifiedNumber" :placeholder="certifiedNumberPlaceholder" aria-label="Enter certified number"></pv-inputext>
           <pv-inputext class="text-xs xl:text-base" v-model="cylinderNumber" :placeholder="cylinderNumberPlaceholder" aria-label="Enter cylinder number"></pv-inputext>
           <pv-inputext class="text-xs xl:text-base" v-model="vehicleIdentifier" :placeholder="vehicleIdentifierPlaceholder" aria-label="Enter vehicle identifier"></pv-inputext>

@@ -5,7 +5,7 @@ const search_report_es = {
     clear_button: 'Limpiar',
     certified_number:'Número Certificado',
     cylinder_number:'Número de Cilindro',
-    vehicle_identifier_number:'Número de Identificación del Vehículo',
+    vehicle_identifier_number:'Número de Placa',
     emit_date:'Fecha de Emisión',
     search_context: 'Sistema de validacion de certificados emitidos por el Organismo de Inspección',
     search_organization_context : 'por el Organismo de Inspección',
