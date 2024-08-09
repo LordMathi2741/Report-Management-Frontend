@@ -76,6 +76,7 @@ export default {
 </script>
 
 <template>
+  <h2 class="my-7 text-white text-justify lg:text-center text-md md:text-base lg:text-xl xl:text-2xl">{{$t('search_options_title')}} </h2>
   <div class="mt-3 flex flex-column gap-8" aria-label="Search report options content">
     <div class="w-full flex flex-column pt-8 gap-7" aria-label="Search report options parameters">
       <div class="search-info-container flex flex-column gap-2 lg:mx-auto">
