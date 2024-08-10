@@ -77,10 +77,9 @@ export default {
 
 <template>
   <h2 class="my-7 text-white text-justify lg:text-center text-md md:text-base lg:text-xl xl:text-2xl">{{$t('search_options_title')}} </h2>
-  <div class="mt-3 flex flex-column gap-8" aria-label="Search report options content">
-    <div class="w-full flex flex-column pt-8 gap-7" aria-label="Search report options parameters">
+  <div class="mt-3 flex flex-column gap-3" aria-label="Search report options content">
+    <div class="w-full flex flex-column  gap-7" aria-label="Search report options parameters">
       <div class="search-info-container flex flex-column gap-2 lg:mx-auto">
-        <h2 class="text-white text-md md:text-base lg:text-xl xl:text-2xl"> {{$t('search_context')}} </h2>
         <h2 class="text-white text-md md:text-base lg:text-xl xl:text-2xl"> {{$t('search_report_subcontext')}}</h2>
       </div>
       <div v-if="notDataFound" class="flex flex-column lg:flex-row gap-2">

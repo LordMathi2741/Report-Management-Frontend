@@ -57,8 +57,8 @@ export default {
     <div class="bg-white p-7 border-round-xl lg:border-round-2xl shadow-4 flex flex-column gap-4" aria-label="Sign up options parameters content">
       <div class="text-xs text-justify sm:text-sm  lg:text-base sm:w-15rem md:w-25rem flex flex-column gap-2  lg:w-30rem" aria-label="Sign up options title">
         <h3 class="text-center"> {{$t('title_sign_up')}}</h3>
-        <p>
-          {{$t('sign_up_information')}}</p>
+      <div v-html="$t('sign_up_information')">
+        </div>
       </div>
       <div class="flex flex-column  w-10em sm:w-15rem md:w-30rem gap-5" aria-label="Sign up options parameters">
         <pv-inputext  class="text-xs sm:text-sm" v-model="this.username"  size="large" type="text" :placeholder="usernamePlaceholder" aria-label="Please enter your username"/>

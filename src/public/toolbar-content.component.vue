@@ -61,9 +61,6 @@ export default {
        <img src="../assets/schedule-banner.jpeg" class="hidden lg:block schedule-img"  alt="Schedule"/>
         <div class="hidden xl:block ">
           <ul class="flex flex-column lg:flex-row gap-3 sm:text-base md:text-lg">
-            <router-link class="router-style pl-1 pr-1 " to="/sign-in" aria-label="Go to sign in section">
-              <li class="text-black-alpha-90 hover:text-green-700"> {{$t('sign_in_section')}}</li>
-            </router-link>
             <router-link class="router-style pl-3 pr-3" to="/search" aria-label="Go to search report pdf section">
               <li class="text-black-alpha-90 hover:text-green-700">{{$t('search_section')}} </li>
             </router-link>

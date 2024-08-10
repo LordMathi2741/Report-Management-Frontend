@@ -3,7 +3,7 @@ const search_report_details_en = {
   search_report_details_button: 'Search',
   vehicle_identifier_placeholder:'Enter the vehicle identifier',
   cylinder_number_placeholder:'Enter the cylinder number',
-  certificate_number_placeholder:'Enter the certificate number',
+  certificate_number_placeholder:'Nº 001-xxxxxx or Nº 008-xxxxxx',
   emit_date_placeholder:'Emit date (yyyy-mm-dd)',
   certificate_number_header:'Certificate Number',
   vehicle_identifier_header:'Vehicle Identifier',

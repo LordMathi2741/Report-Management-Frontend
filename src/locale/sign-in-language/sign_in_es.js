@@ -1,9 +1,9 @@
 const en = {
-  title_sign_in: 'Porfavor ingrese sus datos de cuenta',
+  title_sign_in: 'Ingrese sus datos de cuenta',
   sign_in_section: 'Iniciar sesión',
   sign_up : 'Registrarse',
-  email: 'Porfavor ingrese su correo electronico',
-  password:'Porfavor ingrese su contraseña',
+  email: 'Ingrese su correo electronico',
+  password:'Ingrese su contraseña',
   warning_sign_in: 'Aun no esta registrado?',
 
 }

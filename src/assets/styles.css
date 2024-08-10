@@ -17,10 +17,7 @@
     height: 35px;
 }
 
-.search-info-container h2:nth-child(1){
-    text-align: center;
-    text-transform:  uppercase;
-}
+
 
 
 .search-report-details-container{
@@ -182,7 +179,7 @@
 
 
 .not-sign-in-container{
-    background-image: url('../assets/backgroundSearchReport.png');
+    background-image: url('../assets/background-search-report.png');
     background-size: cover;
     background-position: center;
     height: 100vh;
