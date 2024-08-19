@@ -4,6 +4,10 @@ class ReportsService {
   cylinderNumber, emitDate, vehicleIdentifier){
      return BaseService.get('/Reports/img/'+certifiedNumber+'/'+cylinderNumber+'/'+emitDate+'/'+vehicleIdentifier)
   }
+  reportExistsByImgByCertifiedNumberAndCylinderNumberAndEmitDateAndBrand(certifiedNumber,
+                                                                                     cylinderNumber, emitDate, brand){
+    return BaseService.get('/Reports/img/pec/'+certifiedNumber+'/'+cylinderNumber+'/'+emitDate+'/'+brand)
+  }
   static countReportsByBrandAndYear(brand,year){
       return BaseService.get('/Reports/brand/'+brand +'/'+year)
   }

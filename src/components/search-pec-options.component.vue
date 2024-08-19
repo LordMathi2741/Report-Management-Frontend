@@ -4,12 +4,12 @@ import ReportImgService from '@/helpers/report-img.service.js'
 import { isTokenExpired } from '@/helpers/verify-token.service.js'
 
 export default {
-  name: 'search-report-options',
+  name: 'search-pec-options',
   data() {
     return {
       certifiedNumber: "",
       cylinderNumber: "",
-      vehicleIdentifier: "",
+      brand: "",
       emitDate: null,
       reportsService: new ReportsService(),
       notDataFound: true,
@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     searchReport() {
-      this.reportsService.reportExistsByImgByCertifiedNumberAndCylinderNumberAndEmitDateAndVehicleIdentifier(this.certifiedNumber, this.cylinderNumber, this.emitDate, this.vehicleIdentifier)
+      this.reportsService.reportExistsByImgByCertifiedNumberAndCylinderNumberAndEmitDateAndBrand(this.certifiedNumber, this.cylinderNumber, this.emitDate, this.brand)
         .then((response) => {
           if (response.status === 200) {
             this.notDataFound = false;
@@ -42,7 +42,7 @@ export default {
     clearParameters() {
       this.certifiedNumber = "";
       this.cylinderNumber = "";
-      this.vehicleIdentifier = "";
+      this.brand = "";
       this.emitDate = null;
       this.notDataFound = true;
     }
@@ -54,8 +54,8 @@ export default {
     cylinderNumberPlaceholder() {
       return this.$t('cylinder_number_placeholder');
     },
-    vehicleIdentifierPlaceholder() {
-      return this.$t('vehicle_identifier_placeholder');
+    brandPlaceholder() {
+      return this.$t('brand_placeholder');
     },
     emitDatePlaceholder() {
       return this.$t('emit_date_placeholder');
@@ -85,13 +85,13 @@ export default {
         <div class="flex font-bold lg:mx-auto text-white flex-column gap-4">
           <p class="text-xs md:text-xl">{{$t('certified_number')}}:</p>
           <p class="text-xs md:text-xl">{{$t('cylinder_number')}}:</p>
-          <p class="text-xs md:text-xl">{{$t('vehicle_identifier_number')}}:</p>
+          <p class="text-xs md:text-xl">{{$t('brand_header')}}:</p>
           <p class="text-xs md:text-xl">{{$t('emit_date')}}:</p>
         </div>
         <div class="flex flex-column lg:mx-auto w-15rem sm:w-20rem gap-2">
           <pv-inputext class="text-xs xl:text-base" v-model="certifiedNumber" :placeholder="certifiedNumberPlaceholder" aria-label="Enter certified number"></pv-inputext>
           <pv-inputext class="text-xs xl:text-base" v-model="cylinderNumber" :placeholder="cylinderNumberPlaceholder" aria-label="Enter cylinder number"></pv-inputext>
-          <pv-inputext class="text-xs xl:text-base" v-model="vehicleIdentifier" :placeholder="vehicleIdentifierPlaceholder" aria-label="Enter vehicle identifier"></pv-inputext>
+          <pv-inputext class="text-xs xl:text-base" v-model="brand" :placeholder="brandPlaceholder" aria-label="Enter vehicle identifier"></pv-inputext>
           <pv-inputext class="text-xs xl:text-base" v-model="emitDate" :placeholder="emitDatePlaceholder" aria-label="Enter emit date"></pv-inputext>
           <div class="flex gap-3">
             <pv-button @click="searchReport" aria-label="Search report pdf button">{{$t('search_button')}}</pv-button>

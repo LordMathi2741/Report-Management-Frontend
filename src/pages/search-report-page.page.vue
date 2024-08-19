@@ -1,5 +1,6 @@
 <script>
 import SearchReportOptions from '@/components/search-report-options.component.vue'
+import { isTokenExpired } from '@/helpers/verify-token.service.js'
 
 export default {
   name: 'search-report-page',

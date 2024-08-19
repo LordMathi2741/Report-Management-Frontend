@@ -12,6 +12,8 @@ const routes = [
     {path:'/report-chart-type', component: () => import('../pages/report-chart-type-page.page.vue')},
     {path: '/report-details', component : ()=> import('../pages/search-report-details-page.page.vue')},
     {path: '/total-reports-chart', component : ()=> import('../pages/total-reports-chart-page.page.vue')},
+  {path: '/report-options-search', component : ()=> import('../pages/choose-option-search.page.vue')},
+  {path: '/search-pec', component : ()=> import('../pages/search-pec-page.page.vue')},
   ]
 
 

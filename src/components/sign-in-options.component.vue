@@ -31,7 +31,7 @@ export default {
         localStorage.setItem('token', JSON.stringify(response.data));
         alert("Sign in success, your token will expire in 1 hour");
         await this.fetchAndStoreUserInfo();
-        this.$router.push('/search').then(() => {
+        this.$router.push('/report-options-search').then(() => {
           window.location.reload();
         });
       } catch (error) {

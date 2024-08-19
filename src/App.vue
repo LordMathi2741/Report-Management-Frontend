@@ -7,7 +7,7 @@ import ToolbarContent from '@/public/toolbar-content.component.vue'
 
 <template>
   <toolbar-content/>
-  <router-view/>
+ <router-view/>
   <div class="footer-manager">
     <footer-content/>
   </div>

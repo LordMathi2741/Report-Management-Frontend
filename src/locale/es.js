@@ -6,6 +6,7 @@ import profile_es from '@/locale/profile-management-language/profile_es.js'
 import search_report_es from '@/locale/search-report-language/search_report_es.js'
 import report_chart_es from '@/locale/report-chart-language/report_chart_es.js'
 import search_report_details_es from '@/locale/search-report-details-language/search_report_details_es.js'
+import options_search_es from '@/locale/options-search-language/es.js'
 
 const es = {
     ...toolbar_es,
@@ -15,6 +16,7 @@ const es = {
     ...profile_es,
     ...search_report_es,
     ...report_chart_es,
-    ...search_report_details_es
+    ...search_report_details_es,
+    ...options_search_es
 }
 export default es;
