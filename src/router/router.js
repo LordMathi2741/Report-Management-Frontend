@@ -14,6 +14,7 @@ const routes = [
     {path: '/total-reports-chart', component : ()=> import('../pages/total-reports-chart-page.page.vue')},
   {path: '/report-options-search', component : ()=> import('../pages/choose-option-search.page.vue')},
   {path: '/search-pec', component : ()=> import('../pages/search-pec-page.page.vue')},
+  {path: '/user-report', component : ()=> import('../pages/user-report.page.vue')},
   ]
 
 

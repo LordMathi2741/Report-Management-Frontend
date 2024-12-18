@@ -11,8 +11,12 @@ class UserService{
    getUserNameByEmail(email){
       return BaseService.get(`/Users/getUsername/${email}`);
    }
-  static  getCurrentRole(username){
+  static getCurrentRole(username){
       return BaseService.get(`/Users/getUserRoleByUsername/${username}`);
+   }
+
+   static  getAllUsers(){
+     return BaseService.get('/Users')
    }
 
 }
