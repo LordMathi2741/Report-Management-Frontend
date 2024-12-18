@@ -80,9 +80,13 @@ export default {
                 <pv-button severity="contrast" class="text-white" aria-label="Sign in button">{{$t('sign_in_section')}}</pv-button>
               </router-link>
             </li>
-            <li v-if="currentUserType === 'Admin'">
+            <li v-if="currentUserType === 'Admin'" class="flex flex-column align-items-center gap-2">
               <router-link class="router-style" to="/report-chart" aria-label="Go to admin section">
                 <pv-button severity="contrast" class="text-white" aria-label="Admin button"> {{$t('report_list')}} </pv-button>
+              </router-link>
+
+              <router-link class="router-style" to="/user-report" aria-label="Go to admin section">
+                <pv-button severity="contrast" class="text-white" aria-label="Admin button"> {{$t('user_management')}} </pv-button>
               </router-link>
             </li>
 
@@ -97,9 +101,12 @@ export default {
          <pv-button severity="contrast" class="h-2rem" type="button" icon="pi pi-bars" @click="toggle" aria-haspopup="true" aria-controls="overlay_menu" />
          <pv-menu ref="menu" id="overlay_menu" :model="items" :popup="true" />
        </div>
-       <div v-if="currentUserType === 'Admin'" class="mx-auto">
+       <div v-if="currentUserType === 'Admin'" class=" flex flex-column gap-2">
          <router-link class="router-style" to="/report-chart" aria-label="Go to admin section">
            <pv-button severity="contrast" class="text-white report-section-btn text-sm" aria-label="Lists reports button"> {{$t('report_list')}} </pv-button>
+         </router-link>
+         <router-link class="router-style" to="/user-report" aria-label="Go to admin section">
+           <pv-button severity="contrast" class="text-white report-section-btn text-sm" aria-label="Lists reports button"> {{$t('user_management')}} </pv-button>
          </router-link>
        </div>
      </div>
