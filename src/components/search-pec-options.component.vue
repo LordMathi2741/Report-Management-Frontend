@@ -65,10 +65,13 @@ export default {
     }
   },
   mounted() {
-    const token = JSON.parse(localStorage.getItem('token'));
+    const token = JSON.parse(sessionStorage.getItem('token'));
     if (token && isTokenExpired(token)) {
+      sessionStorage.removeItem("token");
       alert("Your token is expired, please sign in again");
-      this.$router.push('/sign-in');
+      this.$router.push('/sign-in').then(() => {
+        location.reload();
+      });
     }
   }
 }

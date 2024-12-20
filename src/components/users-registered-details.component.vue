@@ -4,6 +4,7 @@
 import UserService from '@/helpers/user.service.js'
 import { UserDTO } from '@/models/userDTO.model.js'
 import * as XLSX from 'xlsx'
+import { isTokenExpired } from '@/helpers/verify-token.service.js'
 
 export default {
   name: 'users-registered-details',
@@ -39,7 +40,18 @@ export default {
 
 
   mounted() {
-    this.getUsers();
+    const token = JSON.parse(sessionStorage.getItem('token'));
+    if (token && isTokenExpired(token)) {
+      sessionStorage.removeItem("token");
+      alert("Your token is expired, please sign in again");
+      this.$router.push('/sign-in').then(() => {
+        window.location.reload();
+      })
+    }
+    else{
+      this.getUsers();
+    }
+
   }
 }
 </script>
