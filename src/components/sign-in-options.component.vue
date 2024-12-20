@@ -28,7 +28,7 @@ export default {
     async signIn() {
       try {
         const response = await this.userService.signInUser(this.email, this.password);
-        localStorage.setItem('token', JSON.stringify(response.data));
+        sessionStorage.setItem('token', JSON.stringify(response.data));
         alert("Sign in success, your token will expire in 1 hour");
         await this.fetchAndStoreUserInfo();
         this.$router.push('/report-options-search').then(() => {
