@@ -7,6 +7,7 @@ import search_report_en from '@/locale/search-report-language/search_report_en.j
 import report_chart_en from '@/locale/report-chart-language/report_chart_en.js'
 import search_report_details_en from '@/locale/search-report-details-language/search_report_details_en.js'
 import options_search_en from '@/locale/options-search-language/en.js'
+import inacal_validate_en from '@/locale/inacal-validate-language/inacal_validate_en.js'
 
 const en = {
     ...toolbar_en,
@@ -17,6 +18,7 @@ const en = {
   ...search_report_en,
   ...report_chart_en,
   ...search_report_details_en,
-  ...options_search_en
+  ...options_search_en,
+    ...inacal_validate_en
 }
 export default en;
