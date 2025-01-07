@@ -137,8 +137,6 @@
 
 
 
-
-
 .modifiable {
     padding-top: 150px;
     width: 1200px;
@@ -220,6 +218,7 @@ small {
 
 
 
+
 li:nth-child(1):hover{
     color: mediumseagreen;
     cursor: pointer;
@@ -228,9 +227,6 @@ li:nth-child(1):hover{
 }
 
 @media (width <= 1257px) {
-    .pdf-screen-manager{
-     height: 800px;
-    }
 
     .search-info-container{
         width: 50%;
@@ -240,29 +236,17 @@ li:nth-child(1):hover{
         text-align: justify;
     }
 }
-@media(width<=950px){
-    .pdf-screen-manager{
-        height: 600px;
-    }
-}
+
 @media(width<=732px){
-    .pdf-screen-manager{
-        height: 550px;
-    }
+   width: 100%;
 }
 @media(width<=642px){
-    .pdf-screen-manager{
-        height: 400px;
-    }
     .search-info-container{
         width: 30%;
     }
 
 }
 @media(width<=432px){
-    .pdf-screen-manager{
-        height: 300px;
-    }
     .search-info-container{
         width: 20%;
     }

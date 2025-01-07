@@ -1,6 +1,5 @@
 <script>
 import ReportsService from '@/helpers/reports.service.js'
-import ReportImgService from '@/helpers/report-img.service.js'
 import { isTokenExpired } from '@/helpers/verify-token.service.js'
 
 export default {
@@ -12,8 +11,7 @@ export default {
       vehicleIdentifier: "",
       emitDate: null,
       reportsService: new ReportsService(),
-      notDataFound: true,
-      reportsImgService: new ReportImgService()
+      notDataFound: true
     }
   },
   methods: {
@@ -22,22 +20,11 @@ export default {
         .then((response) => {
           if (response.status === 200) {
             this.notDataFound = false;
-            this.getReportImg(this.certifiedNumber);
           }
         }).catch(() => {
         this.notDataFound = true;
         alert("No report found, please check the parameters");
       })
-    },
-    async getReportImg(filename) {
-      await this.reportsImgService.getReportImgByFileName(filename)
-        .then((response) => {
-          if (response.status === 200) {
-            this.notDataFound = false;
-          }
-        }).catch(() => {
-          this.notDataFound = true;
-        })
     },
     clearParameters() {
       this.certifiedNumber = "";
@@ -78,12 +65,8 @@ export default {
 </script>
 
 <template>
-  <h2 class="my-7 text-white text-justify lg:text-center text-md md:text-base lg:text-xl xl:text-2xl">{{$t('search_options_title')}} </h2>
   <div class="mt-3 flex flex-column gap-3" aria-label="Search report options content">
     <div class="w-full flex flex-column  gap-7" aria-label="Search report options parameters">
-      <div class="search-info-container flex flex-column gap-2 lg:mx-auto">
-        <h2 class="text-white text-md md:text-base lg:text-xl xl:text-2xl"> {{$t('search_report_subcontext')}}</h2>
-      </div>
       <div v-if="notDataFound" class="flex flex-column lg:flex-row gap-2">
         <div class="flex font-bold lg:mx-auto text-white flex-column gap-4">
           <p class="text-xs md:text-xl">{{$t('certified_number')}}:</p>
@@ -111,9 +94,6 @@ export default {
           {{$t('warning')}} <code>iframe</code>.
         </iframe>
       </div>
-    </div>
-    <div class="my-8 search-info-container text-justify lg:mx-auto text-white text-md md:text-base lg:text-xl xl:text-2xl " aria-label="Sign up options title">
-      <p>{{$t('search_report_information')}}</p>
     </div>
   </div>
 </template>

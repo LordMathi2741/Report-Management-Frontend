@@ -1,10 +1,11 @@
 <script>
 import SearchReportOptions from '@/components/search-report-options.component.vue'
-import { isTokenExpired } from '@/helpers/verify-token.service.js'
+import SearchScreenHero from '@/components/search-screen-hero.component.vue'
+import SearchScreenFooter from '@/components/search-screen-footer.component.vue'
 
 export default {
   name: 'search-report-page',
-  components: { SearchReportOptions },
+  components: { SearchScreenFooter, SearchScreenHero, SearchReportOptions },
   data(){
     return {
       isUserSignIn: false
@@ -21,7 +22,9 @@ export default {
 <template>
   <div v-if="isUserSignIn"  class="search-container">
      <div class="modifiable text-left pl-7 md:pl-8 lg:pl-0 md:text-sm sm:text-xs text-black-alpha-90" aria-label="Report management screen">
+        <search-screen-hero :title="$t('search_options_title')" :subtitle="$t('search_report_subcontext')"/>
          <search-report-options/>
+       <search-screen-footer :content="$t('search_report_information')"/>
        </div>
      </div>
    <div class="not-sign-in-container" v-else>

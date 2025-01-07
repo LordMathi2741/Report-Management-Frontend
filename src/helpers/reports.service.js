@@ -8,6 +8,9 @@ class ReportsService {
                                                                                      cylinderNumber, emitDate, brand){
     return BaseService.get('/Reports/img/pec/'+certifiedNumber+'/'+cylinderNumber+'/'+emitDate+'/'+brand)
   }
+  reportExistsByCertifiedNumber(certifiedNumber){
+    return BaseService.get('/Reports/get-by-certifiedNumber/'+certifiedNumber)
+  }
   static countReportsByBrandAndYear(brand,year){
       return BaseService.get('/Reports/brand/'+brand +'/'+year)
   }
@@ -22,9 +25,6 @@ class ReportsService {
   }
   static getReportByVehicleIdentifier(vehicleIdentifier){
     return BaseService.get('Reports/get-by-vehicle-identifier/'+vehicleIdentifier)
-  }
-  static getAllReports(){
-    return BaseService.get('Reports')
   }
   static countTotalReportsByYear(year){
     return BaseService.get('Reports/countTotalReportsByYear/'+year)

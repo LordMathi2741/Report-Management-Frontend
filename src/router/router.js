@@ -2,7 +2,7 @@ import { createRouter } from 'vue-router';
 import { createWebHashHistory } from 'vue-router';
 
 function isAuthenticated() {
-  return !!localStorage.getItem('token');
+  return !!sessionStorage.getItem('token');
 }
 
 const routes = [

@@ -132,7 +132,7 @@ export default {
       alert("Your token is expired, please sign in again");
       this.$router.push('/sign-in').then(() => {
         window.location.reload();
-      })
+      })w
     }
   }
 }
